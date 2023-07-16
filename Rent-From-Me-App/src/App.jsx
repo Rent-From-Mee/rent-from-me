@@ -1,4 +1,5 @@
 import NavBar from "./Components/NavBar/NavBar"
+import OwnerRegistration from "./Forms/OwnerRegistration"
 
 function App() {
 
@@ -6,7 +7,7 @@ function App() {
   return (
     <>
     <NavBar/>
-    
+    <OwnerRegistration />
     </>
   )
 }
