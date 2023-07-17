@@ -7,6 +7,7 @@ import {GrLogout} from 'react-icons/gr'
 import {AiOutlineLogin} from 'react-icons/ai'
 import {FaRegAddressCard} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
+import {FaHome} from 'react-icons/fa'
   function NavBar() {
     const [hiding, setHiding] = useState(false)
   return (
@@ -16,7 +17,7 @@ import {Link} from 'react-router-dom'
         <div className='cursor-pointer'>
             <AiOutlineMenu size={25} onClick = {()=>{setHiding(!hiding)}}/>
         </div>
-        <h1 className='text-xl sm:3xl lg:text-3xl px-2 '>Gebi <span className='font-bold'>Rents</span></h1>
+        <h1 className='text-xl sm:3xl lg:text-3xl px-2 '>Gebi <Link to ='/' className='font-bold cursor-pointer'>Rents</Link></h1>
         </div>
         
         <div className='flex    text-[20px] cursor-pointer font-sans capitalize  text-xl hidden sm:flex' >
@@ -24,9 +25,10 @@ import {Link} from 'react-router-dom'
              
             <div className='flex cursor-pointer'>
 
-                <Link className='px-2 text-2xl  hover:text-blue-500'>get started</Link>
-                <Link className='px-2 text-2xl  hover:text-blue-500'>Login</Link>
-                <Link className='px-2 text-2xl  hover:text-blue-500'>Register</Link>
+                <Link to='/' className='px-2 text-2xl  hover:text-blue-500'>Home</Link>
+                <Link to='/register' className='px-2 text-2xl  hover:text-blue-500'>get started</Link>
+                <Link to='/login' className='px-2 text-2xl  hover:text-blue-500'>Login</Link>
+                <Link to='/register' className='px-2 text-2xl  hover:text-blue-500'>Register</Link>
               
             
             </div>
@@ -50,12 +52,13 @@ import {Link} from 'react-router-dom'
         </h2>
         <nav>
             <ul className='flex flex-col p-4 text-gray-800 capitalize'>
-                <li className='text-xl py-4 flex w-full hover:bg-gray-100'><FaUser size={25} className='mr-4' /> Profile</li>
-                <li className='text-xl py-4 flex  w-full hover:bg-gray-100'><GrAdd size={25} className='mr-4' /> add Item</li>
+                <Link to='/' className='text-xl py-4 flex w-full hover:bg-gray-100'><FaHome size={25} className='mr-4' /> Home</Link>
+                <Link className='text-xl py-4 flex w-full hover:bg-gray-100'><FaUser size={25} className='mr-4' /> Profile</Link>
+                <Link className='text-xl py-4 flex  w-full hover:bg-gray-100'><GrAdd size={25} className='mr-4' /> add Item</Link>
 
-                <li className='text-xl py-4 flex  w-full hover:bg-gray-100'><FaRegAddressCard size={25} className='mr-4' /> Register</li>
-                <li className='text-xl py-4 flex  w-full hover:bg-gray-100'><AiOutlineLogin size={25} className='mr-4' /> Login </li>
-                <li className='text-xl py-4 flex absolute bottom-0 left-0 mb-5 bg-gray-100 w-full px-4'><GrLogout size={25} className='mr-4 ' /> logout</li>
+                <Link to='/register' className='text-xl py-4 flex  w-full hover:bg-gray-100'><FaRegAddressCard size={25} className='mr-4' /> Register</Link>
+                <Link className='text-xl py-4 flex  w-full hover:bg-gray-100'><AiOutlineLogin size={25} className='mr-4' /> Login </Link>
+                <Link className='text-xl py-4 flex absolute bottom-0 left-0 mb-5 bg-gray-100 w-full px-4'><GrLogout size={25} className='mr-4 ' /> logout</Link>
  
             </ul>
         </nav>
