@@ -1,5 +1,7 @@
 import NavBar from "./Components/NavBar/NavBar"
 import OwnerRegistration from "./Forms/OwnerRegistration"
+import AddItem  from "./Components/AddItem";
+
 
 function App() {
 
@@ -7,7 +9,8 @@ function App() {
   return (
     <>
     <NavBar/>
-    <OwnerRegistration />
+    {/* <OwnerRegistration /> */}
+    <AddItem />
     </>
   )
 }
