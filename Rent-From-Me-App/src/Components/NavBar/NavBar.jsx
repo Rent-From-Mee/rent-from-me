@@ -10,6 +10,7 @@ import {Link} from 'react-router-dom'
 import {FaHome} from 'react-icons/fa'
   function NavBar() {
     const [hiding, setHiding] = useState(false)
+  
   return (
     <div className='max-w-[1640px] mx-auto flex justify-between  items-center p-4 shadow '>
       {/* left side  */}
@@ -24,8 +25,7 @@ import {FaHome} from 'react-icons/fa'
             <div className='flex text-2xl  '>
              
             <div className='flex cursor-pointer'>
-
-                <Link to='/' className='px-2 text-2xl  hover:text-blue-500'>Home</Link>
+                <Link onClick = {()=>{setHiding(!hiding)}}to='/' className='px-2 text-2xl  hover:text-blue-500'>Home</Link>
                 <Link to='/register' className='px-2 text-2xl  hover:text-blue-500'>get started</Link>
                 <Link to='/login' className='px-2 text-2xl  hover:text-blue-500'>Login</Link>
                 <Link to='/register' className='px-2 text-2xl  hover:text-blue-500'>Register</Link>
@@ -52,13 +52,13 @@ import {FaHome} from 'react-icons/fa'
         </h2>
         <nav>
             <ul className='flex flex-col p-4 text-gray-800 capitalize'>
-                <Link to='/' className='text-xl py-4 flex w-full hover:bg-gray-100'><FaHome size={25} className='mr-4' /> Home</Link>
-                <Link className='text-xl py-4 flex w-full hover:bg-gray-100'><FaUser size={25} className='mr-4' /> Profile</Link>
-                <Link className='text-xl py-4 flex  w-full hover:bg-gray-100'><GrAdd size={25} className='mr-4' /> add Item</Link>
+                <Link onClick = {()=>{setHiding(!hiding)}}to='/' className='text-xl py-4 flex w-full hover:bg-gray-100'><FaHome size={25} className='mr-4' /> Home</Link>
+                <Link onClick = {()=>{setHiding(!hiding)}} to = '/profile'className='text-xl py-4 flex w-full hover:bg-gray-100'><FaUser size={25} className='mr-4' /> Profile</Link>
+                <Link onClick = {()=>{setHiding(!hiding)}}  to= '/addItem' className='text-xl py-4 flex  w-full hover:bg-gray-100'><GrAdd size={25} className='mr-4' /> add Item</Link>
 
-                <Link to='/register' className='text-xl py-4 flex  w-full hover:bg-gray-100'><FaRegAddressCard size={25} className='mr-4' /> Register</Link>
-                <Link className='text-xl py-4 flex  w-full hover:bg-gray-100'><AiOutlineLogin size={25} className='mr-4' /> Login </Link>
-                <Link className='text-xl py-4 flex absolute bottom-0 left-0 mb-5 bg-gray-100 w-full px-4'><GrLogout size={25} className='mr-4 ' /> logout</Link>
+                <Link onClick = {()=>{setHiding(!hiding)}}to='/register' className='text-xl py-4 flex  w-full hover:bg-gray-100'><FaRegAddressCard size={25} className='mr-4' /> Register</Link>
+                <Link onClick = {()=>{setHiding(!hiding)}} to = '/login'className='text-xl py-4 flex  w-full hover:bg-gray-100'><AiOutlineLogin size={25} className='mr-4' /> Login </Link>
+                <Link onClick = {()=>{setHiding(!hiding)}}to = '/logout' className='text-xl py-4 flex absolute bottom-0 left-0 mb-5 bg-gray-100 w-full px-4'><GrLogout size={25} className='mr-4 ' /> logout</Link>
  
             </ul>
         </nav>
