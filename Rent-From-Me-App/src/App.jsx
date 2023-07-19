@@ -1,6 +1,7 @@
 import { Route,Routes,useLocation } from "react-router-dom"
 import NavBar from "./Components/NavBar/NavBar"
 import OwnerRegistration from "./Forms/OwnerRegistration"
+import Hero, {} from './Components/NavBar/Hero'
 
 
 function App() {
@@ -12,8 +13,12 @@ function App() {
     {/* <NavBar/> */}
     {/* <OwnerRegistration /> */}
     {location.pathname === '/' ?(
-      
+      <>
       <NavBar/>
+      <Hero/>
+      {/* <Hero/> */}
+   
+      </>
       
       ):(<>
           <NavBar/>
