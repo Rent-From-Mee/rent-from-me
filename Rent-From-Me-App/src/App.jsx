@@ -4,6 +4,7 @@ import OwnerRegistration from "./Forms/OwnerRegistration"
 import Hero, {} from './Components/NavBar/Hero'
 
 
+
 function App() {
   const location  = useLocation()
 
@@ -17,6 +18,7 @@ function App() {
       <NavBar/>
       <Hero/>
       {/* <Hero/> */}
+      
    
       </>
       
