@@ -1,9 +1,16 @@
 import {Formik , Form,Field,ErrorMessage} from 'formik'
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import {useOwnerRegistrationMutation} from '../Store/Api/Auth' 
+
 function OwnerRegistration() {
   const [OwnerRegistration,{isSuccess,error = {}}]  = useOwnerRegistrationMutation()
+  const navigate = useNavigate()
+function message(){
+  toast.success("Owner Registration Success ",{position:toast.POSITION.TOP_CENTER,autoClose:2000})
+}
   const initialValues = {
     first_name: '', 
     last_name :'',
@@ -24,6 +31,9 @@ const handleSubmit  = (values)=>{
     last_name:values.last_name, 
     email: values.email, 
     password: values.password
+  }).then(()=>{
+   message()
+    navigate("/login")
   })
   console.log(error)
 
