@@ -3,6 +3,7 @@ import Cookies from 'js-cookie'
 const BASE_URL  =  "https://rent-from-me-f11e9aa3a1c2.herokuapp.com"
         const setToken = (token)=>{
         Cookies.set("token",token,{expires:1})
+        
         }
   const Auth = createApi({
     reducerPath:"Auth",
@@ -16,6 +17,7 @@ const BASE_URL  =  "https://rent-from-me-f11e9aa3a1c2.herokuapp.com"
                     method:"POST",
                     body:newOwnser
             }),
+            invalidatesTags:["Auth"]
         }),
         ownerLogin:builder.mutation({
             query:(user)=>({
@@ -23,10 +25,11 @@ const BASE_URL  =  "https://rent-from-me-f11e9aa3a1c2.herokuapp.com"
                 method:"POST",
                 body:user
             }),
+            invalidatesTags:["Auth"],
             onQueryStarted:async(args,{queryFulfilled})=>{
                 try{
                 const result  =  await queryFulfilled
-                console.log(result)
+               console.log("RESult",result)
                 setToken(result.data.token)
                 }catch(err){
                     console.log(err)
@@ -35,19 +38,20 @@ const BASE_URL  =  "https://rent-from-me-f11e9aa3a1c2.herokuapp.com"
             }
         }),
         fetchUser:builder.query({
-            query:()=>({
-                
-                url:'/api/owner/profile/',
-                method:'GET',
-               
-            })
+            query:()=>{
+                return{
 
-        })
+                    url:'/api/owner/profile',
+                    method:'GET',
+                }
+        
+        }
 
     
      
     })
 })
+  })
 
 export const {
     useOwnerRegistrationMutation,

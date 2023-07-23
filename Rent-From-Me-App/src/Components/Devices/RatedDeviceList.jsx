@@ -21,78 +21,7 @@ function RatedDeviceList() {
           price: "$180",
           rating: "9.6"
         },
-        {
-          image:
-            "https://images.pexels.com/photos/1876045/pexels-photo-1876045.jpeg?auto=compress&cs=tinysrgb&w=600",
-          name: "House",
-          desc: "Big House",
-          price: "$180",
-          rating: "9.6"
-        },
-        {
-          image:
-            "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600",
-          name: "House",
-          desc: "Big House",
-          price: "$180",
-          rating: "9.6"
-        },
-        {
-          image:
-            "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600",
-          name: "House",
-          desc: "Big House",
-          price: "$180",
-          rating: "9.6"
-        },
-        {
-          image:
-            "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600",
-          name: "House",
-          desc: "Big House",
-          price: "$180",
-          rating: "9.6"
-        },
-        {
-          image:
-            "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600",
-          name: "House",
-          desc: "Big House",
-          price: "$180",
-          rating: "9.6"
-        },
-        {
-          image:
-            "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600",
-          name: "House",
-          desc: "Big House",
-          price: "$180",
-          rating: "9.6"
-        },
-        {
-          image:
-            "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600",
-          name: "House",
-          desc: "Big House",
-          price: "$180",
-          rating: "9.6"
-        },
-        {
-          image:
-            "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600",
-          name: "House",
-          desc: "Big House",
-          price: "$180",
-          rating: "9.6"
-        },
-        {
-          image:
-            "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg?auto=compress&cs=tinysrgb&w=600",
-          name: "House",
-          desc: "Big House",
-          price: "$180",
-          rating: "9.6"
-        },
+       
       ];
   return (
     <>

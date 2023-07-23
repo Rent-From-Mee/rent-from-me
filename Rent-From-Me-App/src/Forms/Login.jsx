@@ -2,10 +2,12 @@ import {Form,Field ,ErrorMessage, Formik} from 'formik'
 import*  as Yup from 'yup'
 import { useEffect } from 'react'
 import {useOwnerLoginMutation,useFetchUserQuery} from '../Store/Api/Auth'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 function Login(){
     const [ownerLogin,{error = {},isSuccess}]  = useOwnerLoginMutation()
     const {data:users = {} } = useFetchUserQuery()
+    const navigate  = useNavigate()
     const initialValues ={
         email: '',
         password:''
@@ -21,7 +23,9 @@ function Login(){
         email:values.email,
         password:values.password
      })
+     navigate("/addItem")
      resetForm()
+   console.log("Users",users)
 
     }
 
