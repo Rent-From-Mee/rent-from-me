@@ -6,6 +6,7 @@ import Login from './Forms/Login'
 import ItemRegistration from './Forms/ItemRegistration'
 
 import {ToastContainer,toast} from 'react-toastify'
+import PopularDeviceList from "./Components/Devices/PopularDeviceList"
 
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,6 +24,7 @@ function App() {
       <>
       <NavBar/>
       <Hero/>
+      <PopularDeviceList />
       </>
       ):(<>
           <NavBar/>
