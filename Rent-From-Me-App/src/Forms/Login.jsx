@@ -1,13 +1,23 @@
 import {Form,Field ,ErrorMessage, Formik} from 'formik'
 import*  as Yup from 'yup'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {useOwnerLoginMutation,useFetchUserQuery} from '../Store/Api/Auth'
+import { useRenterLoginMutation, useFetchRenterQuery } from '../Store/Api/Renter'
 import { Navigate, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 function Login(){
     const [ownerLogin,{error = {},isSuccess}]  = useOwnerLoginMutation()
-    const {data:users = {} } = useFetchUserQuery()
+    const [ renterLogin ] = useRenterLoginMutation()
+    const [ rollType, setRollType ] = useState("Renter")
+    // const {data:users = {} } = useFetchUserQuery()
+    const {data:userRenter = {} } = useFetchRenterQuery()
     const navigate  = useNavigate()
+
+    function message(){
+        toast.error(`Invalid Email or Password`,{position:toast.POSITION.TOP_CENTER,autoClose:2000})
+      }
+
     const initialValues ={
         email: '',
         password:''
@@ -19,13 +29,33 @@ function Login(){
     
     })
     const handleSubmit = (values,{resetForm})=>{
-     ownerLogin({
-        email:values.email,
-        password:values.password
-     })
-     navigate("/addItem")
+        if(rollType === "Owner"){
+            ownerLogin({
+                email:values.email,
+                password:values.password
+             }).unwrap().then(()=>{
+                navigate("/addItem")
+           console.log(error)
+             }).catch((error)=>{
+                message()
+             })
+        }
+
+        if(rollType === "Renter"){
+            renterLogin({
+                email:values.email,
+                password:values.password
+             }).unwrap().then(()=>{
+                navigate("/addItem")  
+           console.log("Users",userRenter)
+           console.log(error)
+             }).catch((error)=>{
+                console.log(error)
+                message()
+             })
+        }
+        
      resetForm()
-   console.log("Users",users)
 
     }
 
@@ -44,7 +74,14 @@ function Login(){
                 <div className="mb-3">
                 <h3 className=" text-2xl mb-4 font-medium text-gray-900 dark:text-gray-900 ">Sign in Your Account </h3>
                 </div>
-
+                <div className="mb-2">
+            <label className="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Type:</label>
+            <select onChange={(e)=>setRollType(e.target.value)} id="type" name='type' className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-lg focus:outline-blue-500 block w-full p-2.5" autoComplete="off">
+            
+            <option value="Renter">Renter</option>
+            <option value="Owner">Owner</option>
+            </select>
+            </div>
                 <div className="mb-3">
                     <label className="block mb-4 text-sm font-medium md:text-xl text-gray-700 dark:text-white">Email</label>
                     <Field type="text" id="email"name = 'email' placeholder="email" className="bg-gray-100 border border-gray-400 text-gray-900 shadow-sm text-md focus:outline-blue-500 block w-96 p-3"></Field>

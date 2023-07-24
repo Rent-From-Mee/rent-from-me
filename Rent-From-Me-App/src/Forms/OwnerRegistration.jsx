@@ -1,21 +1,30 @@
+import { useRef, useState } from 'react';
 import {Formik , Form,Field,ErrorMessage} from 'formik'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
-import {useOwnerRegistrationMutation} from '../Store/Api/Auth' 
+import {useOwnerRegistrationMutation} from '../Store/Api/Auth'
+import { useRenterRegistrationMutation } from '../Store/Api/Renter';
 
 function OwnerRegistration() {
   const [OwnerRegistration,{isSuccess,error = {}}]  = useOwnerRegistrationMutation()
+  const [ renterRegistration ] = useRenterRegistrationMutation()
   const navigate = useNavigate()
-function message(){
-  toast.success("Owner Registration Success ",{position:toast.POSITION.TOP_CENTER,autoClose:2000})
+function message(type){
+  toast.success(`${type} Registration Success`,{position:toast.POSITION.TOP_CENTER,autoClose:2000})
 }
+
+  const [ rollType, setRollType ] = useState("Renter")
+
+  
+
+  const typeRef = useRef(null);
   const initialValues = {
     first_name: '', 
     last_name :'',
     email :'',
-    password:''
+    password:'',
   }
   const validationSchema = Yup.object({
     first_name : Yup.string().required("First Name is required"),
@@ -25,24 +34,40 @@ function message(){
   });
 
 const handleSubmit  = (values)=>{
+
   
-  OwnerRegistration({
-    first_name:values.first_name, 
-    last_name:values.last_name, 
-    email: values.email, 
-    password: values.password
-  }).then(()=>{
-   message()
-    navigate("/login")
-  })
-  console.log(error)
+  
+  if(rollType === "Owner"){
+    OwnerRegistration({
+      first_name:values.first_name, 
+      last_name:values.last_name, 
+      email: values.email, 
+      password: values.password
+    }).then(()=>{
+      console.log("OWNER",values)
+     message("Owner")
+      navigate("/login")
+    })
+  }
+  if(rollType === "Renter"){
+    renterRegistration({
+      first_name:values.first_name, 
+      last_name:values.last_name, 
+      email: values.email, 
+      password: values.password
+    }).then(()=>{
+      console.log("RENTER",values)
+     message("Renter")
+      navigate("/login")
+    })
+  }
+
+  console.log("rollType",rollType)
+  
+  // console.log(error)
 
 }
-useEffect(()=>{
-  if(isSuccess){
-    console.log("registerd")
-  }
-},[isSuccess])
+
   return (
     <div className="max-w-md p-4 lg:max-w-5xl bg-white shadow-sm rounded-md md:max-w-3xl mx-auto">
    
@@ -53,7 +78,7 @@ useEffect(()=>{
  >
 <Form  className="bg-white p-8 shadow-md rounded-sm">
   <div className="mb-2 text-center flex justify-center ">
-    <label className="block mb-2 text-3xl font-bold font-medium text-black lg:text-4xl dark:text-white">Owner Registration</label>
+    <label className="block mb-2 text-3xl font-bold text-black lg:text-4xl dark:text-white">Registration</label>
      </div>
 
   <div className="mb-2">
@@ -68,6 +93,16 @@ useEffect(()=>{
     <Field type="text" id="last_name"name  = 'last_name'className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-lg focus:outline-blue-500 block w-full p-2.5" placeholder="Enter Last Name" autoComplete="off"  />
     <ErrorMessage name="last_name" component="div" className="text-red-500" />
     
+  </div>
+
+  <div className="mb-2">
+    <label className="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Type:</label>
+    <select onChange={(e)=>setRollType(e.target.value)} id="type" name='type' className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-lg focus:outline-blue-500 block w-full p-2.5" autoComplete="off">
+    
+    
+    <option value="Renter">Renter</option>
+    <option value="Owner">Owner</option>
+    </select>
   </div>
 
   <div className="mb-2">
