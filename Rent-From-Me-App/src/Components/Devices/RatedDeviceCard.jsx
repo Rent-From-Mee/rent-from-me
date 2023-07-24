@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 function RatedDeviceCard({images}) {
     const { image, name, rating, desc, price } = images
   return (
-    <div className="w-40 max-sm:w-full max-sm:m-auto bg-white shadow-md max-sm:p-2 rounded relative">
+    <div className="w-40 md:max-w-[1640px] max-sm:w-full max-sm:m-auto bg-white shadow-md max-sm:p-2 rounded relative">
         <img src={image} alt={name} className="w-full aspect-video rounded rounded-b-none" />
         <p className="text-lg text-gray-700 ml-1">{name}</p>
         <p className="text-xs bg-gray-900 text-white px-3 text-center rounded-full ml-1 absolute top-2 left-2">{rating}</p>

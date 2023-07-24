@@ -12,7 +12,7 @@ import {FaHome} from 'react-icons/fa'
     const [hiding, setHiding] = useState(false)
   
   return (
-    <div className='max-w-[1640px] mx-auto flex justify-between  items-center p-4 shadow '>
+    <div className='max-w-[1840px] mx-auto flex justify-between  items-center p-4  '>
       {/* left side  */}
         <div className='flex items-center'>
         <div className='cursor-pointer'>
@@ -24,11 +24,15 @@ import {FaHome} from 'react-icons/fa'
         <div className='flex    text-[20px] cursor-pointer font-sans capitalize  text-xl hidden sm:flex' >
             <div className='flex text-2xl  '>
              
-            <div className='flex cursor-pointer'>
-                <Link onClick = {()=>{setHiding(!hiding)}}to='/' className='px-2 text-2xl  hover:text-blue-500'>Home</Link>
-                <Link to='/register' className='px-2 text-2xl  hover:text-blue-500'>get started</Link>
-                <Link to='/login' className='px-2 text-2xl  hover:text-blue-500'>Login</Link>
-                <Link to='/register' className='px-2 text-2xl  hover:text-blue-500'>Register</Link>
+            <div className='flex cursor-pointer hidden sm:flex'>
+                  <button className='inline rounded-2xl   mr-3 border  text-black hover:bg-black hover:text-white border px-10 py-3 '>
+                  <Link>Home</Link>
+                  </button>
+              
+                  <button className='inline rounded-2xl  mr-2    text-black hover:bg-black hover:text-white border px-10 py-3 '>
+                  <Link to='/login'>login</Link>
+                  </button>
+               
               
             
             </div>
@@ -41,7 +45,7 @@ import {FaHome} from 'react-icons/fa'
       
 
       {/* Side drawer menu */}
-      <div className={hiding ? 'fixed top-0 left-0 w-[300px] h-screen bg-white z-10 duration-300' : 'fixed top-0 left-[-100%] w-[300px] h-screen bg-white z-10 duration-300' }>
+      <div className={hiding ? 'fixed top-0 left-0 w-[300px]  h-screen bg-white z-10 duration-300' : 'fixed top-0 left-[-100%] w-[300px] h-screen bg-white z-10 duration-300' }>
         <AiOutlineClose
             onClick={()=> setHiding(!hiding)}
           size={30}
