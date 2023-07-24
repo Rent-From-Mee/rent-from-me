@@ -26,7 +26,7 @@ import {FaHome} from 'react-icons/fa'
              
             <div className='flex cursor-pointer hidden sm:flex'>
                   <button className='inline rounded-2xl   mr-3 border  text-black hover:bg-black hover:text-white border px-10 py-3 '>
-                  <Link>Home</Link>
+                  <Link to='/'>Home</Link>
                   </button>
               
                   <button className='inline rounded-2xl  mr-2    text-black hover:bg-black hover:text-white border px-10 py-3 '>

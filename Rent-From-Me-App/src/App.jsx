@@ -33,7 +33,7 @@ function App() {
              <Route path='/'element={<NavBar/>}></Route>
              <Route path='/register'element={<OwnerRegistration/>}></Route>
              <Route path='/addItem'element={<ItemRegistration/>}></Route>
-             <Route path='/login'element={<Login/>}></Route>
+             <Route path='/login'element={<Login />}></Route>
         </Routes>
       </>
         )}
