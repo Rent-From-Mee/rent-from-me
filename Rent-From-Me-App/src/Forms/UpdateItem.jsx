@@ -1,33 +1,51 @@
 import {useState} from 'react'
 import * as Yup from 'yup'
-
 import {Form, Field,ErrorMessage, Formik} from 'formik'
-
 import office from '../assets/office2.png'
-import {useGetItemsQuery,useCreateItemMutation} from '../Store/Api/item-slice'
+import {useGetItemsQuery,useUpdateItemMutation} from '../Store/Api/item-slice'
 import {toast} from'react-toastify'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 
 
-export default function ItemRegistration() {
- const [createItem] =  useCreateItemMutation()
- const navigate=  useNavigate()
- const message  = ()=>{
-    toast.success("Item Registered Success",{autoClose:500,POSITION:toast.POSITION.TOP_CENTER})
+export default function UpdateItem() {
+  const params  = useParams()
+  const { data: items = [], error } = useGetItemsQuery();
+  const [updateItem] =  useUpdateItemMutation()
+  const navigate=  useNavigate()
+  
+  const message  = ()=>{
+    toast.success("Item Updated  Success",{autoClose:500,POSITION:toast.POSITION.TOP_CENTER})
   }
 
-  const initialValues = {
-    title:'',
-    description:'',
-    make:'',
-    model:'',
-    img_url :'',
-    daily_cost: 0,
-    available:false,
-    condition:''
-  }
+const [initialValues,setInitialValues] =  useState({
+  title:'',
+  description:'',
+  make:'',
+  model:'',
+  img_url :'',
+  daily_cost: 0,
+  available:false,
+  condition:''
+})
+useEffect(()=>{
+    const currentItem = items.find((item)=>item.id  === Number(params.id))
+
+    if(currentItem){
+        setInitialValues({
+        title:currentItem.title,
+        description:currentItem.description,
+        make:currentItem.make,
+        model:currentItem.model,
+        img_url :currentItem.img_url,
+        daily_cost: currentItem.daily_cost,
+        available:currentItem.available,
+        condition:currentItem.condition
+    })
+}
+},[items,params.id])
+
   const validationSchema = Yup.object({
-
     title:Yup.string().required("Title Required"),
      make:Yup.string().required("Make Required"),
      model:Yup.string().required("Model Required"),
@@ -37,19 +55,13 @@ export default function ItemRegistration() {
   })
   const handleSubmit  = (values,{resetForm})=>{
     
-    createItem({
-    title:values.title,
-    description:values.description,
-    make:values.make,
-    model:values.model,
-    img_url:values.img_url,
-    daily_cost:values.daily_cost,
-    available:values.available,
-    condition:values.condition
+    updateItem({
+        id: Number(params.id),
+        updatedItem: values,
    }).unwrap().then(()=>{
 
-     resetForm()
-     message()
+       message()
+       resetForm()
      navigate("/")
    }).catch((error)=>{
     console.log(error)
@@ -135,11 +147,13 @@ export default function ItemRegistration() {
 
 
  <div >
-  <button type='submit'  className='  w-full mb-4  outline-1  bg-blue-600 text-center font-bold text-gray-100 p-4 rounded-lg text-xl '>Register Item</button>
+  <button type='submit'  className='  w-full mb-4  outline-1  bg-blue-600 text-center font-bold text-gray-100 p-4 rounded-lg text-xl '>Update Item</button>
  {/* w-1/2 absolute bottom-10 right-20 */}
  </div>
         </Form>
-        </Formik>   
+        </Formik>
+    
+ 
       </div>
     </div>
   )

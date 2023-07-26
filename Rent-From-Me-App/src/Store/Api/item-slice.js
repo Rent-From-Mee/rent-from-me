@@ -40,8 +40,25 @@ export const itemSlice =  createApi({
             }),
             invalidatesTags:["items"]
 
+        }),
+        updateItem: builder.mutation({
+            query: ({ id, updatedItem }) => ({
+                url: `/api/items/update/${id}`,
+                method: 'PUT',
+                body: updatedItem,
+            }),
+            invalidatesTags: ['items'],
+        }),
+        deleteItem:builder.mutation({
+           query:(id)=>({
+            url:`/api/items/delete/${id}`,
+            method:'DELETE'
+           }),
+           invalidatesTags:["items"]
         })
+     
     })
 })
 
-export const {useCreateItemMutation,useGetItemsQuery} = itemSlice
+export const {useCreateItemMutation,useGetItemsQuery,useUpdateItemMutation
+,useDeleteItemMutation} = itemSlice

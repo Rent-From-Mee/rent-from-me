@@ -1,14 +1,18 @@
 import { GrNext } from "react-icons/gr"
-import { Link } from "react-router-dom"
-import {useGetItemsQuery} from '../../Store/Api/item-slice'
-
+import { Link, useParams } from "react-router-dom"
+import {useGetItemsQuery,useDeleteItemMutation} from '../../Store/Api/item-slice'
+import {FaEdit, FaTrash} from 'react-icons/fa'
+import {toast} from 'react-toastify'
 function RatedDeviceCard({images}) {
   const { data: items = [], error } = useGetItemsQuery();
-  
-     items.forEach((item)=>{
-      console.log("image",item.img_url
-      )
-     })
+const [deleteItem,{e =  {}}] = useDeleteItemMutation()
+
+  const message  = ()=>{
+    if(e){
+      console.log(e)
+    }
+    toast.success(`Item Deleted Success`,{position:toast.POSITION.TOP_CENTER,autoClose:2000})
+  }
   
 
   //  console.log("items Title",items[15].img_url)
@@ -26,24 +30,34 @@ function RatedDeviceCard({images}) {
         <p className="text-sm text-gray-800 ml-1 pr-1 break-words font-semibold">Description {item.description} </p>
         <div className="flex justify-between items-center pb-2 pr-2">
         <p className="text-lg font-bold text-gray-900 ml-1">{item.daily_cost}</p>
-        <Link to={``}>
+        <Link to={`/update/${item.id}`}>
+            <button className="mr-2">
+              <FaEdit className="text-blue-900" size={20} />
+            </button>
+            </Link>
+        
+            <button className="mr-2" onClick={()=>{
+              deleteItem(item.id).unwrap().then(()=>{
+
+                message()
+              }).catch((error)=>{
+                  console.log(error)
+              })
+
+            }}>
+              <FaTrash className="text-blue-900" size={20} />
+            </button>
+           
+        {/* <Link to={``}>
             <GrNext />
-        </Link>
+        </Link> */}
+
         </div>
             </>
           )
         })
       }
-        {/* <img src={image_url} alt={name} className="w-full aspect-video rounded rounded-b-none" />
-        <p className="text-lg text-gray-700 ml-1">{name}</p>
-        <p className="text-xs bg-gray-900 text-white px-3 text-center rounded-full ml-1 absolute top-2 left-2">{rating}</p>
-        <p className="text-sm text-gray-800 ml-1 pr-1 break-words font-semibold">{desc} Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <div className="flex justify-between items-center pb-2 pr-2">
-        <p className="text-lg font-bold text-gray-900 ml-1">{price}</p>
-        <Link to={``}>
-            <GrNext />
-        </Link>
-        </div> */}
+      
     </div>
 
 
