@@ -17,9 +17,7 @@ function message(type){
 
   const [ rollType, setRollType ] = useState("Renter")
 
-  
 
-  const typeRef = useRef(null);
   const initialValues = {
     first_name: '', 
     last_name :'',

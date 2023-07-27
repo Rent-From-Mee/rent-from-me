@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 const BASE_URL  =  "https://rent-from-me-f11e9aa3a1c2.herokuapp.com"
        const setToken = (token)=>{
         Cookies.set("token",token,{expires:1})
-        console.log(token)
+      
         }
   const Renter = createApi({
     reducerPath:"Renter",
@@ -32,7 +32,7 @@ const BASE_URL  =  "https://rent-from-me-f11e9aa3a1c2.herokuapp.com"
                 const result  =  await queryFulfilled
                 console.log(result)
                 setToken(result.data.token)
-                console.log(result.data.token)
+              
                 }catch(err){
                     console.log(err)
 

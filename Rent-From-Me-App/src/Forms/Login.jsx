@@ -1,16 +1,15 @@
 import {Form,Field ,ErrorMessage, Formik} from 'formik'
 import*  as Yup from 'yup'
-import { useEffect, useState } from 'react'
-import {useOwnerLoginMutation,useFetchUserQuery} from '../Store/Api/Auth'
+import { useState } from 'react'
+import {useOwnerLoginMutation} from '../Store/Api/Auth'
 import { useRenterLoginMutation, useFetchRenterQuery } from '../Store/Api/Renter'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 
 function Login(){
     const [ownerLogin,{error = {},isSuccess}]  = useOwnerLoginMutation()
     const [ renterLogin ] = useRenterLoginMutation()
     const [ rollType, setRollType ] = useState("Renter")
-    // const {data:users = {} } = useFetchUserQuery()
     const {data:userRenter = {} } = useFetchRenterQuery()
     const navigate  = useNavigate()
 
