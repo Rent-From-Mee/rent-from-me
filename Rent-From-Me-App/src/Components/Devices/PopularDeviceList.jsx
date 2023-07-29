@@ -84,13 +84,11 @@ function PopularDevice() {
   return (
     <>
     <h2 className="ml-16 p-2 text-2xl">Popular Device</h2>
-      <Carousel responsive={responsive} showDots={true} className="max-w-[92%] pb-4 max-lg:max-w-[75%] flex flex-wrap justify-start max-lg:m-auto">
-      {
-            images.map((image, index)=>(
-         <PopularDeviceCard key={index} images={image} />
-            ))
-        }
-    </Carousel>
+      {/* <Carousel responsive={responsive} showDots={true} className="max-w-[92%] pb-4 max-lg:max-w-[75%] flex flex-wrap justify-start max-lg:m-auto"> */}
+                  
+         <PopularDeviceCard  />
+         
+    {/* </Carousel> */}
     </>
   );
 }

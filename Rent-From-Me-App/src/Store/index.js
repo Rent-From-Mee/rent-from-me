@@ -14,6 +14,7 @@ const Store  = configureStore({
     .concat(Auth.middleware)
     .concat(Renter.middleware)
     .concat(itemSlice.middleware)
+    
   
 })
 setupListeners(Store.dispatch)
