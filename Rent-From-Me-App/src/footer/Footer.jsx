@@ -9,8 +9,8 @@ const Footer = () => {
       <div className='xl:w-[90%]  lg:mx-auto px-2 py-8 lg:ml-10 flex flex-col md:flex-row md:justify-between'>
         <div className='py-2 px-1 md:ml-3 lg:ml-14'>
           <div>
-            <input className='p-3 border-collapse border-black shadow-2xl ' type='email' placeholder='example@gmail.com' />
-            <button className='p-3 text-[#fff] bg-blue-700  hover:text-[#fff] hover:bg-[#000]  hover:shadow-lg duration-500 ease-in'>Send email</button>
+            <input className='p-3 border-collapse border-black shadow ' type='email' placeholder='example@gmail.com' />
+            <button className='p-3 text-[#fff] bg-red-500  hover:text-[#fff] hover:bg-[#000]  hover:shadow-lg duration-500 ease-in'>Send email</button>
             <p className='text-base text-[#000] w-64 space-y-3 my-3 tracking-wider leading-6'>Get E-mail updates about our latest Rent and special offers.</p>
           </div>
           <span>{getYear}  &copy; All rights reserved.</span>
@@ -27,7 +27,7 @@ const Footer = () => {
 
         <div className='py-2 px-1 mr-4 space-y-2 '>
           <div className='flex flex-col justify-start p-1 space-y-3 text-[#000] text-base'>
-            <h4 className='text-[#000] text-3xl capitalize tracking-widest '>Rent<span className='text-blue-700'>FromMe</span></h4>
+            <h4 className='text-[#000] text-3xl capitalize tracking-widest '>Rent<span className='text-red-500'>FromMe</span></h4>
             <p className='tracking-widest'>Phone :+252612353406
             </p>
             <p className='tracking-widest'>Email : rentfrome@gmail.com</p>

@@ -60,29 +60,27 @@ function Login() {
 
 
     return (
-        <div className="w-[95%] bg-white mt-24 lg:w-[30%] mx-auto">
+        <div className="w-[95%]  mt-28 lg:w-[30%] mx-auto">
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}>
-                <Form className="bg-white p-10 shadow-lg rounded-sm flex flex-col justify-start items-start space-y-3">
+                <Form className=" p-10 shadow-lg rounded-sm flex flex-col justify-start items-start space-y-3">
                     <h3 className=" text-2xl mb-4 font-medium text-gray-900 dark:text-gray-900 ">Sign in Your Account </h3>
                     <label className="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Type:</label>
                     <select onChange={(e) => setRollType(e.target.value)} id="type" name='type' className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-lg focus:outline-blue-500 block w-full p-2.5" autoComplete="off">
                         <option value="Renter">Renter</option>
                         <option value="Owner">Owner</option>
                     </select>
-                    <label className="block mb-4 text-sm font-medium md:text-xl text-gray-700 dark:text-white">Email</label>
                     <Field type="text" id="email" name='email' placeholder="email" className="bg-gray-100 border border-gray-400 text-gray-900 shadow-sm text-md focus:outline-blue-500 block w-full p-3"></Field>
                     <ErrorMessage name="email" component="div" className="text-red-500 " />
-                    <label className="block mb-4 text-sm font-medium md:text-xl text-gray-700 dark:text-white">Password </label>
                     <Field type="password" name='password' id="password" placeholder="password" className="shadow-sm bg-gray-100 border border-gray-400 text-gray-900 text-md focus:outline-blue-500 block w-full p-3"></Field>
                     <ErrorMessage name="password" component="div" className="text-red-500" />
                     <span className=' p-1 text-center'>
                         <small className='headingText'>Do you have an account ? </small>
                         <Link className='headingText' to='/register' >Register</Link>
                     </span>
-                    <button type="submit" className="text-white mt-2 bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-sm text-sm w-full px-5 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-800 dark:focus:ring-blue-900">log in</button>
+                    <button type="submit" className="text-white mt-2 bg-red-500 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-sm text-sm w-full px-5 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-800 dark:focus:ring-blue-900">log in</button>
                 </Form>
             </Formik>
         </div>
