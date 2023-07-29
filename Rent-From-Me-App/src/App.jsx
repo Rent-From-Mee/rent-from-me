@@ -13,10 +13,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import RatedDeviceList from "./Components/Devices/RatedDeviceList"
 import UpdateItem from "./Forms/UpdateItem"
 
+import Footer from "./Components/NavBar/Footer"
+
+import PrivateRoute from "./PrivateRoute"
 
 // toast.configure()
 function App() {
   const location  = useLocation()
+  
 
 
   return (
@@ -26,7 +30,8 @@ function App() {
       <NavBar/>
       <Hero/>
       <PopularDeviceList />
-      <RatedDeviceList/>
+      <RatedDeviceList />
+      <Footer />
       </>
       ):(<>
           <NavBar/>
@@ -34,8 +39,12 @@ function App() {
         <Routes>
              <Route path='/'element={<NavBar/>}></Route>
              <Route path='/register'element={<OwnerRegistration/>}></Route>
+             <Route path="/addItem" element={<PrivateRoute />}>
              <Route path='/addItem'element={<ItemRegistration/>}></Route>
+             </Route>
+             <Route path="/update/:id" element={<PrivateRoute />}>
              <Route path='/update/:id'element={<UpdateItem/>}></Route>
+             </Route>
              <Route path='/login'element={<Login />}></Route>
         </Routes>
       </>
