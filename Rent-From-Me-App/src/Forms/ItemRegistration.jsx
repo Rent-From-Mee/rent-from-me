@@ -3,7 +3,6 @@ import * as Yup from 'yup'
 
 import { Form, Field, ErrorMessage, Formik } from 'formik'
 
-import office from '../assets/office2.png'
 import { useGetItemsQuery, useCreateItemMutation } from '../Store/Api/item-slice'
 import { toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
@@ -68,7 +67,7 @@ export default function ItemRegistration() {
             <h1 className="text-4xl tracking-tighter text-center">About Us</h1>
           </div>
           <span className="flex justify-center items-center space-x-4">
-            <Link to="/" className="text-xl">Home</Link> <small>/</small> <span className="text-lg">About</span>
+            <Link to="/" className="text-xl">Home</Link> <small>/</small> <span className="text-lg">Create Item</span>
           </span>
         </div>
 
