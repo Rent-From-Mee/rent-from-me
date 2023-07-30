@@ -1,16 +1,32 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai';
+
 
 import {Link} from 'react-router-dom'
 import "./style.css"
+import Cookies from 'js-cookie';
 const NavBar = () => {
   const [navs, showNavs] = useState(false);
+  const [ isAuthenticated, setIsAuthenticated ] = useState(false)
+  const token = Cookies.get("token")
+  useEffect(()=>{
+    if(token){
+      setIsAuthenticated(true)
+    }
+  },[token])
+
   const showMenu = () => {
     showNavs(!navs)
   }
   const hideMenu = () => {
     showNavs(false);
   }
+
+  function handleLogout () {
+    Cookies.remove("token")
+    setIsAuthenticated(false)
+  }
+
   return (
     <header className='p-3 fixed top-0 left-0 right-0 z-20 bg-[#F4F6F7] shadow'>
     <div className='flex flex-col p-1 lg:flex-row lg:justify-around  lg:w-[97%] lg:mx-auto lg:items-baseline relative'>
@@ -23,14 +39,30 @@ const NavBar = () => {
           <ul className='h-screen lg:h-fit flex flex-col justify-start items-start gap-3 lg:flex-row lg:justify-around lg:items-center text-lg' onClick={hideMenu}>
     
             <Link to="/">HOME</Link>
-            <Link to="/addItem">CREATE ITEM</Link>
+            {token && (
+              <Link to="/addItem">CREATE ITEM</Link>
+            )}
+              
+
+            
             <Link to="/About">ABOUT</Link>
             <Link to="/Contact">CONTACT</Link>
             <span className=' flex flex-row justify-end items-center space-x-10'>
                 {/* <span className='flex flex-row justify-between '><FaUserCircle className='mr-2 mt-1' /> Hi.{displayName}</span> */}
                 {/* <button className='px-4 py-2 text-white bg-[#03256C] rounded-md shadow-md'>Logout </button> */}
-                <Link to="/Login">Sign in</Link>
-                <button className='px-5 py-2 text-white bg-red-500 rounded-md shadow-md'> <Link to="/Register">Get Started</Link> </button>
+                {
+                  token ? (
+                    <Link onClick={handleLogout} to="/Login">Sign Out</Link>
+                  ) : (
+                    <Link to="/Login">Sign in</Link>
+                  )
+                }
+                {
+                  !token && (
+                    <button className='px-5 py-2 text-white bg-red-500 rounded-md shadow-md'> <Link to="/Register">Get Started</Link> </button>
+                  )
+                }
+                
             </span>
           </ul>
         </div>

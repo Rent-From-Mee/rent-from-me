@@ -51,7 +51,7 @@ const About = () => {
 
                     <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full'>
                         <img className="w-full rounded-lg" src="https://images.pexels.com/photos/7567605/pexels-photo-7567605.jpeg" alt="profile team" />
-                        <p className="text-xl">Amiir Muuse</p>
+                        <p className="text-xl">Bakar Mokhtar</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
                             <BsFacebook className='cursor-pointer duration-500  text-base ease-in text-red-500  inline' size={20} />
@@ -62,7 +62,7 @@ const About = () => {
 
                     <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full'>
                         <img className="w-full rounded-lg" src="https://images.pexels.com/photos/7567605/pexels-photo-7567605.jpeg" alt="profile team" />
-                        <p className="text-xl">Amiir Muuse</p>
+                        <p className="text-xl">Ahmed Ziyad</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
                             <BsFacebook className='cursor-pointer duration-500  text-base ease-in text-red-500  inline' size={20} />
@@ -74,7 +74,27 @@ const About = () => {
 
                     <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full '>
                         <img className="w-full rounded-lg" src="https://images.pexels.com/photos/7567605/pexels-photo-7567605.jpeg" alt="profile team" />
-                        <p className="text-xl">Amiir Muuse</p>
+                        <p className="text-xl">Saabirin Omar</p>
+                        <p className="text-base">Creative and Owner</p>
+                        <span className='flex flex-row justify-start space-x-3 pb-2'>
+                            <BsFacebook className='cursor-pointer duration-500  text-base ease-in text-red-500  inline' size={20} />
+                            <BsInstagram className='ml-4 cursor-pointer duration-500  text-base  ease-in text-red-500  inline ' size={20} />
+                            <BsTwitter className='ml-4 cursor-pointer duration-500  text-base  ease-in text-red-500  inline' size={20} />
+                        </span>
+                    </div>
+                    <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full '>
+                        <img className="w-full rounded-lg" src="https://images.pexels.com/photos/7567605/pexels-photo-7567605.jpeg" alt="profile team" />
+                        <p className="text-xl">Mohamed Abqi Qorax</p>
+                        <p className="text-base">Creative and Owner</p>
+                        <span className='flex flex-row justify-start space-x-3 pb-2'>
+                            <BsFacebook className='cursor-pointer duration-500  text-base ease-in text-red-500  inline' size={20} />
+                            <BsInstagram className='ml-4 cursor-pointer duration-500  text-base  ease-in text-red-500  inline ' size={20} />
+                            <BsTwitter className='ml-4 cursor-pointer duration-500  text-base  ease-in text-red-500  inline' size={20} />
+                        </span>
+                    </div>
+                    <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full '>
+                        <img className="w-full rounded-lg" src="https://images.pexels.com/photos/7567605/pexels-photo-7567605.jpeg" alt="profile team" />
+                        <p className="text-xl">Ayaan Geedi</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
                             <BsFacebook className='cursor-pointer duration-500  text-base ease-in text-red-500  inline' size={20} />

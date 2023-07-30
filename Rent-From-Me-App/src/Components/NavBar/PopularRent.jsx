@@ -1,5 +1,7 @@
 import mac from "../../assets/mac.png";
 import labtop from "../../assets/labtop.png";
+import camera from "../../assets/camera.png"
+import ipad from "../../assets/ipad.png"
 export const PopularRent = () => {
   
   return (
@@ -10,13 +12,13 @@ export const PopularRent = () => {
         <div className="flex flex-col justify-center items-center space-y-3 transition hover:shadow-lg ease-in-out hover:border bg-[#fff] p-2 rounded ">
           <img src={mac} alt="" />
           <div className=" space-y-2">
-            <h1 className="text-2xl">Ipad Pro Max</h1>
+            <h1 className="text-2xl">Lapto</h1>
             <p className="text-base">price<span className=" ml-3 line-through">20%</span></p>
           </div>
         </div>
 
         <div className="flex flex-col justify-start items-center space-y-3 bg-[#fff] p-3 transition hover:shadow-lg ease-in-out hover:border">
-          <img src={labtop} alt="" />
+          <img src={ipad} alt="" />
           <div className=" space-y-2">
             <h1 className="text-2xl">Ipad Pro Max</h1>
             <p className="text-base">price<span className=" ml-3 line-through">20%</span></p>
@@ -24,9 +26,9 @@ export const PopularRent = () => {
         </div>
 
         <div className="flex flex-col justify-start items-center space-y-3 bg-[#fff] p-3 transition hover:shadow-lg ease-in-out hover:border">
-          <img src={mac} alt="" />
+          <img src={camera} alt="" />
           <div className=" space-y-2">
-            <h1 className="text-2xl">Ipad Pro Max</h1>
+            <h1 className="text-2xl">CAMERA</h1>
             <p className="text-base">price<span className=" ml-3 line-through">20%</span></p>
           </div>
         </div>

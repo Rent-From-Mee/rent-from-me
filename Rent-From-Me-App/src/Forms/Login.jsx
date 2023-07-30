@@ -33,6 +33,7 @@ function Login() {
                 email: values.email,
                 password: values.password
             }).unwrap().then(() => {
+                window.location.reload()
                 navigate("/addItem")
                 console.log(error)
             }).catch((error) => {
@@ -45,9 +46,11 @@ function Login() {
                 email: values.email,
                 password: values.password
             }).unwrap().then(() => {
+                window.location.reload()
                 navigate("/addItem")
                 console.log("Users", userRenter)
                 console.log(error)
+                
             }).catch((error) => {
                 console.log(error)
                 message()
