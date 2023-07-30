@@ -25,7 +25,6 @@ export const itemSlice =  createApi({
             return{
                 url:'/api/items',
                 method:'GET',
-
             }
            },
             providesTags:["items"]
@@ -61,4 +60,4 @@ export const itemSlice =  createApi({
 })
 
 export const {useCreateItemMutation,useGetItemsQuery,useUpdateItemMutation
-,useDeleteItemMutation} = itemSlice
+,useDeleteItemMutation, useGetItemsByOwnerQuery} = itemSlice

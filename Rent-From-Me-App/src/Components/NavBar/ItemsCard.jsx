@@ -5,6 +5,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import {toast} from 'react-toastify'
 export const ItemsCard = () => {
   const { data: items = [], error } = useGetItemsQuery();
+  
   const [deleteItem] = useDeleteItemMutation()
   const navigate  = useNavigate()
 const message  = ()=>{
@@ -28,7 +29,7 @@ const message  = ()=>{
           <img src={item.img_url} className = 'w-full  object-cover h-[400px]' alt="" />
           <div className=" space-y-2 ">
             <h1 className="text-2xl">{item.title}</h1>
-            <p className="text-base ">Daily Cost<span className=" ml-3  text-red-500">{item.daily_cost}</span></p>
+            <p className="text-base ">Daily Cost<span className=" ml-3  text-red-500">${item.daily_cost}</span></p>
           </div>
         
           <div className="space-y-2">
