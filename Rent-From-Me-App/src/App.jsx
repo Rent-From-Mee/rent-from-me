@@ -9,6 +9,7 @@ import UpdateItem from "./Forms/UpdateItem"
 import Home from "./Components/NavBar/Home"
 import Footer from "./footer/Footer"
 import About from "./about/About"
+import Contact from "./Forms/Contact"
 function App() {
   return (
     <>
@@ -20,6 +21,7 @@ function App() {
              <Route path='/register'element={<OwnerRegistration/>}></Route>
              <Route path='/addItem'element={<ItemRegistration/>}></Route>
              <Route path='/update/:id'element={<UpdateItem/>}></Route>
+             <Route path='/contact'element={<Contact/>}></Route>
              <Route path='/Login'element={<Login />}></Route>
         </Routes>
         <Footer/>
