@@ -24,7 +24,7 @@ const message  = ()=>{
         {items.map((item)=>{
           return(
             <>
-        <div className="flex flex-col justify-start items-start space-y-3 transition hover:shadow-lg ease-in-out hover:border bg-[#fff] p-2 rounded ">
+        <div key={item.id} className="flex flex-col justify-start items-start space-y-3 transition hover:shadow-lg ease-in-out hover:border bg-[#fff] p-2 rounded ">
           <img src={item.img_url} className = 'w-full  object-cover h-[400px]' alt="" />
           <div className=" space-y-2 ">
             <h1 className="text-2xl">{item.title}</h1>
