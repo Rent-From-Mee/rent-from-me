@@ -3,6 +3,12 @@ import { HiInformationCircle, HiLightBulb } from 'react-icons/hi';
 import { SiSimplenote } from 'react-icons/si';
 import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
 import profile from "../assets/bg-cover.png"
+import amiir from "../assets/amiir.jpg"
+import bakar from "../assets/bakar.jpg"
+import qorax from "../assets/qorax.jpg"
+import saabiriin from "../assets/saabiriin.jpg"
+import unkown from "../assets/unkown.png"
+import "./About.css"
 const About = () => {
     return (
         <>
@@ -39,7 +45,7 @@ const About = () => {
                 <div className='flex flex-col lg:flex-row justify-center mx-auto mt-14  p-3 lg:w-[87%] text-[#000] gap-6'>
 
                     <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full'>
-                        <img className="w-full rounded-lg" src="https://images.pexels.com/photos/7567605/pexels-photo-7567605.jpeg" alt="profile team" />
+                        <img className="w-full rounded-lg" src={amiir} alt="profile team" />
                         <p className="text-xl">Amiir Muuse</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
@@ -50,7 +56,7 @@ const About = () => {
                     </div>
 
                     <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full'>
-                        <img className="w-full rounded-lg" src="https://images.pexels.com/photos/7567605/pexels-photo-7567605.jpeg" alt="profile team" />
+                        <img className="w-full rounded-lg" src={bakar} alt="profile team" />
                         <p className="text-xl">Bakar Mokhtar</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
@@ -61,7 +67,7 @@ const About = () => {
                     </div>
 
                     <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full'>
-                        <img className="w-full rounded-lg" src="https://images.pexels.com/photos/7567605/pexels-photo-7567605.jpeg" alt="profile team" />
+                        <img className="w-full rounded-lg" src={unkown} alt="profile team" />
                         <p className="text-xl">Ahmed Ziyad</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
@@ -73,7 +79,7 @@ const About = () => {
 
 
                     <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full '>
-                        <img className="w-full rounded-lg" src="https://images.pexels.com/photos/7567605/pexels-photo-7567605.jpeg" alt="profile team" />
+                        <img className="w-full rounded-lg" src={saabiriin} alt="profile team" />
                         <p className="text-xl">Saabirin Omar</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
@@ -83,7 +89,7 @@ const About = () => {
                         </span>
                     </div>
                     <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full '>
-                        <img className="w-full rounded-lg" src="https://images.pexels.com/photos/7567605/pexels-photo-7567605.jpeg" alt="profile team" />
+                        <img className="w-full rounded-lg" src={qorax} alt="profile team" />
                         <p className="text-xl">Mohamed Abqi Qorax</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
@@ -93,7 +99,7 @@ const About = () => {
                         </span>
                     </div>
                     <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full '>
-                        <img className="w-full rounded-lg" src="https://images.pexels.com/photos/7567605/pexels-photo-7567605.jpeg" alt="profile team" />
+                        <img className="w-full rounded-lg" src={unkown} alt="profile team" />
                         <p className="text-xl">Ayaan Geedi</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
