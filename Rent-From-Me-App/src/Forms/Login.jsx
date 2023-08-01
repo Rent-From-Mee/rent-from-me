@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 
 function Login() {
-    const [ownerLogin, { error = {}, isSuccess }] = useOwnerLoginMutation()
+    const [ownerLogin] = useOwnerLoginMutation()
     const [renterLogin] = useRenterLoginMutation()
     const [rollType, setRollType] = useState("Renter")
     const { data: userRenter = {} } = useFetchRenterQuery()
@@ -20,7 +20,6 @@ function Login() {
     const initialValues = {
         email: '',
         password: ''
-
     }
     const validationSchema = Yup.object({
         email: Yup.string().required("Email is Required"),
@@ -33,11 +32,12 @@ function Login() {
                 email: values.email,
                 password: values.password
             }).unwrap().then(() => {
+                navigate("/")
                 window.location.reload()
-                navigate("/addItem")
                 console.log(error)
             }).catch((error) => {
                 message()
+                console.log(error)
             })
         }
 
@@ -47,9 +47,9 @@ function Login() {
                 password: values.password
             }).unwrap().then(() => {
                 window.location.reload()
-                navigate("/addItem")
+                navigate("/")
                 console.log("Users", userRenter)
-                console.log(error)
+           
                 
             }).catch((error) => {
                 console.log(error)

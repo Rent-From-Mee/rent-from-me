@@ -15,10 +15,8 @@ export const itemSlice =  createApi({
             }
             return Headers
          }
-        
     }),
     tagTypes:["items"],
-
     endpoints:(builder)=>({
         getItems:builder.query({
            query:()=>{
@@ -28,9 +26,7 @@ export const itemSlice =  createApi({
             }
            },
             providesTags:["items"]
-            
         }),
-        
         createItem:builder.mutation({
             query:(newItem)=>({
                 url:"/api/items/create",
@@ -54,10 +50,26 @@ export const itemSlice =  createApi({
             method:'DELETE'
            }),
            invalidatesTags:["items"]
+        }),
+        getOwnerProfile:builder.query({
+           query:()=>{
+            return{
+
+                url:`/api/owner/profile`,
+                method:'GET'
+            }
+            
+           },
+           invalidatesTags:["items"]
         })
      
     })
 })
 
-export const {useCreateItemMutation,useGetItemsQuery,useUpdateItemMutation
-,useDeleteItemMutation, useGetItemsByOwnerQuery} = itemSlice
+export const {
+    useCreateItemMutation,
+    useGetItemsQuery,
+    useUpdateItemMutation
+   ,useDeleteItemMutation, 
+    useGetItemsByOwnerQuery,
+    useGetOwnerProfileQuery} = itemSlice

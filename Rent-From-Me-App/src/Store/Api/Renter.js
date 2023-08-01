@@ -2,8 +2,7 @@ import {createApi,fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 import Cookies from 'js-cookie'
 const BASE_URL  =  "https://rent-from-me-f11e9aa3a1c2.herokuapp.com"
        const setToken = (token)=>{
-        Cookies.set("token",token,{expires:1})
-      
+        Cookies.set("token",token,{expires:1})      
         }
   const Renter = createApi({
     reducerPath:"Renter",
@@ -32,7 +31,6 @@ const BASE_URL  =  "https://rent-from-me-f11e9aa3a1c2.herokuapp.com"
                 const result  =  await queryFulfilled
                 console.log(result)
                 setToken(result.data.token)
-              
                 }catch(err){
                     console.log(err)
 
@@ -48,14 +46,9 @@ const BASE_URL  =  "https://rent-from-me-f11e9aa3a1c2.herokuapp.com"
                 method:'GET',
                
             })
-
         })
-
-    
-     
     })
 })
-
 export const {
     useRenterRegistrationMutation,
     useRenterLoginMutation,

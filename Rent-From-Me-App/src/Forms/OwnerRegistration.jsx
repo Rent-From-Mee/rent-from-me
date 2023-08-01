@@ -1,14 +1,14 @@
-import { useRef, useState } from 'react';
+
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
+import { useState } from 'react';
 import { useOwnerRegistrationMutation } from '../Store/Api/Auth'
 import { useRenterRegistrationMutation } from '../Store/Api/Renter';
 
 function OwnerRegistration() {
-  const [OwnerRegistration, { isSuccess, error = {} }] = useOwnerRegistrationMutation()
+  const [OwnerRegistration] = useOwnerRegistrationMutation()
   const [renterRegistration] = useRenterRegistrationMutation()
   const navigate = useNavigate()
   function message(type) {

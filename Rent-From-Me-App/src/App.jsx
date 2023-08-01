@@ -11,6 +11,7 @@ import Footer from "./footer/Footer"
 import About from "./about/About"
 import Contact from "./Forms/Contact"
 import PrivateRoute from "./PrivateRoute"
+import RentItem from "./RentItem"
 function App() {
   return (
     <>
@@ -24,11 +25,15 @@ function App() {
             <Route path="/addItem" element={<PrivateRoute />} >
              <Route path='/addItem'element={<ItemRegistration/>}></Route>
              </Route>
+            {/* <Route path="/items/:id" element={<PrivateRoute />} >
+             </Route> */}
+             {/* <Route path='/items/:id'element={<RentItem/>}></Route> */}
              <Route path="/update/:id" element={<PrivateRoute />} >
              <Route path='/update/:id'element={<UpdateItem/>}></Route>
              </Route>
              
              <Route path='/contact'element={<Contact/>}></Route>
+             <Route path='/items/:id'element={<RentItem/>}></Route>
              <Route path='/Login'element={<Login />}></Route>
         </Routes>
         <Footer/>

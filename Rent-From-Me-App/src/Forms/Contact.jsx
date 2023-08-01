@@ -3,14 +3,11 @@ import * as Yup from 'yup'
 import { Form, Field, ErrorMessage, Formik } from 'formik'
 import { toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
-
-
 export default function Contact() {
   const navigate = useNavigate()
   const message = () => {
     toast.success("Thanks For You Contacting", { autoClose: 500, POSITION: toast.POSITION.TOP_CENTER })
   }
-
   const initialValues = {
     name: '',
     email: '',
@@ -18,20 +15,15 @@ export default function Contact() {
 
   }
   const validationSchema = Yup.object({
-
     name: Yup.string().required("Name Required"),
     email: Yup.string().required("Email Required"),
     message: Yup.string().required("Message Required"),
-
   })
   const handleSubmit = (values, { resetForm }) => {
       resetForm()
       message()
       navigate("/")
   }
-
-
-
   return (
     <>
       <div className="mt-20 p-10 bg-red-500 text-white">
@@ -46,7 +38,6 @@ export default function Contact() {
 
       </div>
       <div className='flex flex-col lg:flex-row  justify-evenly items-center space-x-2 p-2 space-y-3  md:w-[80%] w-[97%] mx-auto'>
-      
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
