@@ -12,7 +12,7 @@ export default function Hero() {
           <p className="text-base lg:text-xl tracking-widest leading-loose h-fit" style={{lineHeight:"2"}}>Rent-From-Me offers a wide range of electronic Devices for rent</p>
           <button className="px-8 py-3 rounded shadow bg-red-500 text-[#fff]">Rent Now</button>
         </div>
-        <img className=" rounded-lg lg:rotate-3" src={Avatar} alt="bg-cover" />
+        <img className=" rounded-lg lg:rotate-3 " src={Avatar} alt="bg-cover" />
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 space-y-3 gap-4 md:w-[92%] xl:w-[89%] xl:gap-3   mx-auto mt-14'>
         <div className='p-8 rounded-sm shadow cursor-pointer hover:shadow-2xl border w-[90%] mx-auto xl:ml-5' data-aos="fade-up">

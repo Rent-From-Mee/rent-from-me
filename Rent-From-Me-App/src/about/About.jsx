@@ -8,7 +8,7 @@ import bakar from "../assets/bakar.jpg"
 import qorax from "../assets/qorax.jpg"
 import saabiriin from "../assets/saabiriin.jpg"
 import unkown from "../assets/unkown.png"
-import "./About.css"
+import "./about.css"
 const About = () => {
     return (
         <>
@@ -26,7 +26,7 @@ const About = () => {
 
             <div className='p-5 text-[#000] mt-14'>
                 <div className='flex flex-col lg:flex-row justify-start lg:ml-20 shadow-inner'>
-                    <img className='lg:w-[35%] h-[72] rounded-md' src={profile} alt='profiles' />
+                    <img className='lg:w-[35%] h-[72] rounded-md object-cover' src={profile} alt='profiles' />
                     <div className='lg:w-[50%] leading-8 lg:ml-10 tracking-widest space-y-3 mt-10'>
                         <span className='text-3xl'>We Are Team Developed By Rent <span className="text-red-500">FromMe</span></span>
                         <p className='text-2xl'>Guided Us COE Founder Gabi School</p>
@@ -44,8 +44,8 @@ const About = () => {
                 <h1 className="text-3xl font-bold text-center">Our<span className="text-red-500">Team</span></h1>
                 <div className='flex flex-col lg:flex-row justify-center mx-auto mt-14  p-3 lg:w-[87%] text-[#000] gap-6'>
 
-                    <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full'>
-                        <img className="w-full rounded-lg" src={amiir} alt="profile team" />
+                    <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3  lg:w-8/12 w-full'>
+                        <img className="w-full rounded-l object-cover h-[450px] lg:h-[300px]" src={amiir} alt="profile team" />
                         <p className="text-xl">Amiir Muuse</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
@@ -55,8 +55,8 @@ const About = () => {
                         </span>
                     </div>
 
-                    <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full'>
-                        <img className="w-full rounded-lg" src={bakar} alt="profile team" />
+                    <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-8/12 w-full'>
+                        <img className="w-full rounded-lg object-cover h-[450px] lg:h-[300px]" src={bakar} alt="profile team" />
                         <p className="text-xl">Bakar Mokhtar</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
@@ -66,8 +66,8 @@ const About = () => {
                         </span>
                     </div>
 
-                    <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full'>
-                        <img className="w-full rounded-lg" src={unkown} alt="profile team" />
+                    <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-8/12 w-full'>
+                        <img className="w-full rounded-lg object-cover h-[450px] lg:h-[300px]" src={unkown} alt="profile team" />
                         <p className="text-xl">Ahmed Ziyad</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
@@ -78,8 +78,8 @@ const About = () => {
                     </div>
 
 
-                    <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full '>
-                        <img className="w-full rounded-lg" src={saabiriin} alt="profile team" />
+                    <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-8/12 w-full '>
+                        <img className="w-full rounded-lg object-cover h-[450px] lg:h-[300px]" src={saabiriin} alt="profile team" />
                         <p className="text-xl">Saabirin Omar</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
@@ -88,8 +88,8 @@ const About = () => {
                             <BsTwitter className='ml-4 cursor-pointer duration-500  text-base  ease-in text-red-500  inline' size={20} />
                         </span>
                     </div>
-                    <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full '>
-                        <img className="w-full rounded-lg" src={qorax} alt="profile team" />
+                    <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-8/12 w-full '>
+                        <img className="w-full rounded-lg object-cover h-[450px] lg:h-[300px]" src={qorax} alt="profile team" />
                         <p className="text-xl">Mohamed Abqi Qorax</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
@@ -98,8 +98,8 @@ const About = () => {
                             <BsTwitter className='ml-4 cursor-pointer duration-500  text-base  ease-in text-red-500  inline' size={20} />
                         </span>
                     </div>
-                    <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-4/12 w-full '>
-                        <img className="w-full rounded-lg" src={unkown} alt="profile team" />
+                    <div className='rounded-md hover:shadow-lg transition ease-in-out hover:border-2 p-3 space-y-3 lg:w-8/12 w-full '>
+                        <img className="w-full rounded-lg object-cover h-[450px] lg:h-[300px]" src={unkown} alt="profile team" />
                         <p className="text-xl">Ayaan Geedi</p>
                         <p className="text-base">Creative and Owner</p>
                         <span className='flex flex-row justify-start space-x-3 pb-2'>
