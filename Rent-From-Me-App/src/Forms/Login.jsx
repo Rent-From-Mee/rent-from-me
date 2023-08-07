@@ -34,7 +34,7 @@ function Login() {
             }).unwrap().then(() => {
                 navigate("/")
                 window.location.reload()
-                console.log(error)
+             
             }).catch((error) => {
                 message()
                 console.log(error)
@@ -48,9 +48,7 @@ function Login() {
             }).unwrap().then(() => {
                 navigate("/")
                 window.location.reload()
-                // console.log(error)
-           
-                
+       
             }).catch((error) => {
                 console.log(error)
                 message()

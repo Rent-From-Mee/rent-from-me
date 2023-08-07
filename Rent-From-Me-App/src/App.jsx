@@ -13,6 +13,7 @@ import UpdateItem from "./Components/owner/UpdateItem";
 import ItemRegistration from "./Components/owner/ItemRegistration";
 import OwnerRegistration from "./Components/owner/OwnerRegistration";
 import Profile from "./Components/pages/Profile";
+import OwnerProfile from "./Components/pages/OwnerProfile";
 function App() {
   return (
     <>
@@ -27,6 +28,9 @@ function App() {
              </Route>
              <Route path="/profile" element={<PrivateRoute />} >
              <Route path='/profile'element={<Profile/>}></Route>
+             </Route>
+             <Route path="/ownerProfile" element={<PrivateRoute />} >
+             <Route path='/ownerProfile'element={<OwnerProfile/>}></Route>
              </Route>
             {/* <Route path="/items/:id" element={<PrivateRoute />} >
              </Route> */}

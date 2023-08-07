@@ -1,8 +1,9 @@
 
-import { useRentProfileQuery } from '../../Store/Api/Renter'
+import { useGetOwnerProfileQuery } from '../../Store/Api/item-slice'
 export default function Profile() {
 
-    const { data: rentProfile = [] } = useRentProfileQuery()
+    const { data: ownerProfile = [] } = useGetOwnerProfileQuery()
+ 
 
     return (
         <>
@@ -13,18 +14,18 @@ export default function Profile() {
                         className=' rounded-full w-[100px] h-[100px]   mt-10 object-cover' />
 
                     <h3 className='text-gray-100 font-normal text-2xl'>
-                        {rentProfile&&rentProfile.first_name + "  " + rentProfile.last_name}
+                        {ownerProfile&&ownerProfile.first_name + "  " + ownerProfile.last_name}
                     </h3>
                 </div>
                 <div>
                     <div className='text-[20px] mt-2'>
                         <p className='px-10 pt-2 '>Type :
-                            <span className='px-3'>Renter</span></p>
+                            <span className='px-3'>Owner</span></p>
                     </div>
 
                     <div className='text-[20px] mt-2 mb-2 pb-10'>
                         <p className='px-10 pt-2 '>Email :
-                            <span className='px-3'>{rentProfile&&rentProfile.email}</span></p>
+                            <span className='px-3'>{ownerProfile&&ownerProfile.email}</span></p>
 
                     </div>
 

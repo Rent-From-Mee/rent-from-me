@@ -42,7 +42,6 @@ function OwnerRegistration() {
         email: values.email,
         password: values.password
       }).then(() => {
-        console.log("OWNER", values)
         message("Owner")
         navigate("/login")
       })
@@ -54,15 +53,11 @@ function OwnerRegistration() {
         email: values.email,
         password: values.password
       }).then(() => {
-        console.log("RENTER", values)
         message("Renter")
         navigate("/login")
       })
     }
 
-    console.log("rollType", rollType)
-
-    // console.log(error)
 
   }
 

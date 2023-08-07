@@ -12,7 +12,7 @@ export default function RentItem() {
     const params = useParams()
     const currentItem  = items.find((item)=>item.id === Number(params.id))
     const navigate = useNavigate()
-    console.log("retnedItems",rentedItems)
+
     const message = () => {
         toast.success("Item REnted  Success", { autoClose: 500, POSITION: toast.POSITION.TOP_CENTER })
     }

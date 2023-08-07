@@ -10,7 +10,7 @@ export const ItemsCard = () => {
   const message = () => {
     toast.success("Item Deleted Success", { position: toast.POSITION.TOP_CENTER })
   }
-  console.log("Owner", myProfile)
+
   const handleDelete = (item) => {
     deleteItem(item.id).unwrap().then(() => {
       message()
