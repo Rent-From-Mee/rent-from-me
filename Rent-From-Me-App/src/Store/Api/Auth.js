@@ -41,7 +41,7 @@ const BASE_URL  =  "https://rent-from-me-f11e9aa3a1c2.herokuapp.com"
             query:()=>{
                 return{
 
-                    url:'/api/owner/profile',
+                    url:'/api/renter/profile',
                     method:'GET',
                 }
         

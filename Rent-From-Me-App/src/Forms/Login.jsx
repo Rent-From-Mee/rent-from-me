@@ -2,7 +2,7 @@ import { Form, Field, ErrorMessage, Formik } from 'formik'
 import *  as Yup from 'yup'
 import { useState } from 'react'
 import { useOwnerLoginMutation } from '../Store/Api/Auth'
-import { useRenterLoginMutation, useFetchRenterQuery } from '../Store/Api/Renter'
+import { useRenterLoginMutation } from '../Store/Api/Renter'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 
@@ -10,7 +10,7 @@ function Login() {
     const [ownerLogin] = useOwnerLoginMutation()
     const [renterLogin] = useRenterLoginMutation()
     const [rollType, setRollType] = useState("Renter")
-    const { data: userRenter = {} } = useFetchRenterQuery()
+  
     const navigate = useNavigate()
 
     function message() {
@@ -46,9 +46,9 @@ function Login() {
                 email: values.email,
                 password: values.password
             }).unwrap().then(() => {
-                window.location.reload()
                 navigate("/")
-                console.log("Users", userRenter)
+                window.location.reload()
+                // console.log(error)
            
                 
             }).catch((error) => {

@@ -1,6 +1,6 @@
 import Hero from "./Hero"
-import { ItemsCard } from "./ItemsCard"
-import { PopularRent } from "./PopularRent"
+import { ItemsCard} from '../owner/ItemsCard'
+import { PopularRent } from "../renter/PopularRent"
 const Home = () => {
   return (
     <div>

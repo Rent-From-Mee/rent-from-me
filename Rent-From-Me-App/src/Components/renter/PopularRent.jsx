@@ -1,5 +1,5 @@
 import mac from "../../assets/mac.png";
-import labtop from "../../assets/labtop.png";
+
 import camera from "../../assets/camera.png"
 import ipad from "../../assets/ipad.png"
 export const PopularRent = () => {

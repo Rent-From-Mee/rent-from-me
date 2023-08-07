@@ -4,8 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import { useState } from 'react';
-import { useOwnerRegistrationMutation } from '../Store/Api/Auth'
-import { useRenterRegistrationMutation } from '../Store/Api/Renter';
+import { useOwnerRegistrationMutation } from '../../Store/Api/Auth'
+import { useRenterRegistrationMutation } from '../../Store/Api/Renter'
 
 function OwnerRegistration() {
   const [OwnerRegistration] = useOwnerRegistrationMutation()

@@ -71,5 +71,4 @@ export const {
     useGetItemsQuery,
     useUpdateItemMutation
    ,useDeleteItemMutation, 
-    useGetItemsByOwnerQuery,
     useGetOwnerProfileQuery} = itemSlice
