@@ -1,9 +1,9 @@
-import { useState } from 'react'
+
 import * as Yup from 'yup'
 
 import { Form, Field, ErrorMessage, Formik } from 'formik'
 
-import { useGetItemsQuery, useCreateItemMutation } from '../../Store/Api/item-slice'
+import { useCreateItemMutation } from '../../Store/Api/item-slice'
 import { toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
 import itemsCover from '../../assets/bg-item.png'
