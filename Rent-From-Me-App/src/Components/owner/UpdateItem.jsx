@@ -1,8 +1,8 @@
 import {useState} from 'react'
 import * as Yup from 'yup'
 import {Form, Field,ErrorMessage, Formik} from 'formik'
-import itemsCover from '../assets/bg-item.png'
-import {useGetItemsQuery,useUpdateItemMutation} from '../Store/Api/item-slice'
+import itemsCover from '../../assets/bg-item.png'
+import {useGetItemsQuery,useUpdateItemMutation} from '../../Store/Api/item-slice'
 import {toast} from'react-toastify'
 import { useNavigate,useParams,Link } from 'react-router-dom'
 
@@ -87,6 +87,7 @@ useEffect(()=>{
         </div>
 
       </div>
+      
       <div className='flex flex-col lg:flex-row  justify-evenly items-center space-x-2 p-2 space-y-3  md:w-[80%] w-[97%] mx-auto'>
         <img className='w-full lg:w-5/12 object-cover object-center' src={itemsCover } alt="item cover" />
         <Formik
