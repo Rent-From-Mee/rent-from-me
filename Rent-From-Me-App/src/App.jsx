@@ -14,6 +14,7 @@ import ItemRegistration from "./Components/owner/ItemRegistration";
 import OwnerRegistration from "./Components/owner/OwnerRegistration";
 import Profile from "./Components/pages/Profile";
 import OwnerProfile from "./Components/pages/OwnerProfile";
+import RentedItems from "./Components/renter/rentedItems";
 function App() {
   return (
     <>
@@ -31,6 +32,9 @@ function App() {
              </Route>
              <Route path="/ownerProfile" element={<PrivateRoute />} >
              <Route path='/ownerProfile'element={<OwnerProfile/>}></Route>
+             </Route>
+             <Route path="/rentedItems" element={<PrivateRoute />} >
+             <Route path='/rentedItems'element={<RentedItems/>}></Route>
              </Route>
             {/* <Route path="/items/:id" element={<PrivateRoute />} >
              </Route> */}

@@ -2,6 +2,7 @@ import { useGetItemsQuery, useDeleteItemMutation, useGetOwnerProfileQuery } from
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import Cookies from 'js-cookie'
 export const ItemsCard = () => {
   const { data: items = [], error } = useGetItemsQuery();
   const [deleteItem] = useDeleteItemMutation()
@@ -10,9 +11,9 @@ export const ItemsCard = () => {
   const message = () => {
     toast.success("Item Deleted Success", { position: toast.POSITION.TOP_CENTER })
   }
-
-  const handleDelete = (item) => {
-    deleteItem(item.id).unwrap().then(() => {
+  const rentToken = Cookies.get("renter")
+  const handleDelete = (id) => {
+    deleteItem(id).unwrap().then(() => {
       message()
       navigate("/")
     })
@@ -24,7 +25,7 @@ export const ItemsCard = () => {
         {items.map((item) => {
           return (
             <>
-              <div key={item.id} className="flex flex-col justify-start items-start space-y-3 transition  ease-in-out hover:shadow-lg bg-[#fff] p-2 rounded ">
+              {/* <div key={item.id} className="flex flex-col justify-start items-start space-y-3 transition  ease-in-out hover:shadow-lg bg-[#fff] p-2 rounded ">
                 <Link to={`/items/${item.id}`}>
                   <img src={item.img_url} className='w-full  object-cover h-[400px]' alt="Missing Item Image" />
                 </Link>
@@ -51,6 +52,94 @@ export const ItemsCard = () => {
                       </>
                     )
                   }
+                </div>
+              </div> */}
+              <div className="relative flex w-[100%]  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md m-auto mb-3">
+                <div className="relative mx-4 mt-4 h-96 overflow-hidden  bg-white  text-gray-700">
+                  <img
+                    src={item.img_url}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="mb-2 flex items-center justify-between ">
+                    <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased mr-2">
+                      {item.title}
+                    </p>
+                    <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
+                      {item.daily_cost}$
+                    </p>
+                  </div>
+                  <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
+                    {item.description}
+                  </p>
+                </div>
+                <div className="p-6 pt-0 flex justify-between items-center -blue-900">
+
+
+                  {
+                    myProfile.id === item.owner_id ? (
+                      <>
+
+                        <div className='space-x-4'>
+
+                          <button
+                            className="  select-none rounded-lg bg-blue-gray-900/10 py-3    font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                            type="button"
+                            onClick={() => {
+                              handleDelete(item.id)
+                            }} >
+                            <FaTrash size={20} />
+                          </button>
+
+                          <Link to={`/update/${item.id}`}>
+
+                            <button
+                              className="  select-none rounded-lg bg-blue-gray-900/10 py-3    font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                              type="button"
+                            >
+                              <FaEdit size={20} />
+                            </button>
+                          </Link>
+                          {/* 
+                  
+  {
+                    myProfile.id === item.owner_id &&(
+                      <>
+                        <Link to={`/update/${item.id}`}>
+                          <FaEdit size={20} className='space-x-2' onClick={() => {
+                          }} />
+                        </Link>
+                        <FaTrash size={20} className='ml-3' onClick={() => {
+                          handleDelete(item)
+                        }} />
+                      </>
+                    )
+                  }
+                  
+                  */}
+
+                        </div>
+
+                      </>
+
+                    ) : rentToken && (
+                      <>
+                        <Link to={`/items/${item.id}`}>
+                          <button
+                            className="  select-none rounded-lg bg-red-500 py-3 px-4 text-gray-50   font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                            type="button"
+                          >
+                            Rent Now
+                          </button>
+                        </Link>
+
+
+                      </>
+                    )
+                  }
+
+
                 </div>
               </div>
             </>

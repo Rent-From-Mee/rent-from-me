@@ -53,6 +53,7 @@ const NavBar = () => {
               {rentToken ? (
                 <>
 
+                  <Link to="/rentedItems">Rented Items</Link>
                   <Link to="/profile">Profile</Link>
 
 
