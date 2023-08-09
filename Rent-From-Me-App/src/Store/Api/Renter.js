@@ -21,6 +21,7 @@ const Renter = createApi({
     }),
     tagTypes: ["Renter"],
     endpoints: (builder) => ({
+        // get Profile of the renter
         getProfile: builder.query({
             query: () => {
                 return {
@@ -30,6 +31,7 @@ const Renter = createApi({
             },
             providesTags: ["Renter"]
         }),
+        // renter registration 
         renterRegistration: builder.mutation({
             query: (newRenter) => ({
                 url: "/api/renter/register",
@@ -38,6 +40,7 @@ const Renter = createApi({
             }),
             invalidatesTags: ["Renter"]
         }),
+        //rent an item 
         rentAnItem: builder.mutation({
             query: (data) => (
                 console.log("data",data),
@@ -50,6 +53,7 @@ const Renter = createApi({
             invalidatesTags: ["Renter"],
            
         }),
+        // get list of the rented items
         rentedItems:builder.query({
             query:()=>{
                 return{
@@ -59,6 +63,18 @@ const Renter = createApi({
             },
             invalidatesTags:["Renter"]
         }),
+        deleteRentedItem:builder.mutation({
+            query:(id)=>{
+                console.log("id")
+                return{
+                    url:`/api/rentals/remove_item/${id}`,
+                    method:"DELETE"
+                }
+
+        },
+        invalidatesTags:["Renter"]
+        }),
+
         rentProfile: builder.query({
             query: () => ({
                 url: `/api/renter/profile`,
@@ -67,6 +83,7 @@ const Renter = createApi({
             }),
             invalidatesTags: ["Renter"]
         }),
+        
         renterLogin: builder.mutation({
             query: (user) => ({
                 url: "/api/renter/login",
@@ -94,5 +111,6 @@ export const {
    useRentAnItemMutation,
     useRentProfileQuery,
     useRentedItemsQuery
+    ,useDeleteRentedItemMutation
 } = Renter
 export default Renter

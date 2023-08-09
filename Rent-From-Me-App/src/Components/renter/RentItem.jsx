@@ -12,7 +12,7 @@ export default function RentItem() {
     const params = useParams()
     const currentItem  = items.find((item)=>item.id === Number(params.id))
     const navigate = useNavigate()
-
+   console.log("rented",rentedItems)
     const message = () => {
         toast.success("Item REnted  Success", { autoClose: 500, POSITION: toast.POSITION.TOP_CENTER })
     }
@@ -33,7 +33,8 @@ export default function RentItem() {
        }).unwrap().then(()=>{
            message()
            resetForm()
-         navigate("/")
+           navigate("/rentedItems")
+           window.location.reload()
        }).catch((error)=>{
         console.log(error)
        })
