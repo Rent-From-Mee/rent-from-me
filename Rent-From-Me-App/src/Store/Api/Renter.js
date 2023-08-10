@@ -43,7 +43,7 @@ const Renter = createApi({
         //rent an item 
         rentAnItem: builder.mutation({
             query: (data) => (
-                console.log("data",data),
+                // console.log("data",data),
                 {
                 
                 url: `/api/rentals/rent_item/${data.id}`,
@@ -65,7 +65,7 @@ const Renter = createApi({
         }),
         deleteRentedItem:builder.mutation({
             query:(id)=>{
-                console.log("id")
+                // console.log("id")
                 return{
                     url:`/api/rentals/remove_item/${id}`,
                     method:"DELETE"

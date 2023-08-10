@@ -25,35 +25,7 @@ export const ItemsCard = () => {
         {items.map((item) => {
           return (
             <>
-              {/* <div key={item.id} className="flex flex-col justify-start items-start space-y-3 transition  ease-in-out hover:shadow-lg bg-[#fff] p-2 rounded ">
-                <Link to={`/items/${item.id}`}>
-                  <img src={item.img_url} className='w-full  object-cover h-[400px]' alt="Missing Item Image" />
-                </Link>
-                <div className=" space-y-2 ">
-                  <h1 className="text-2xl">{item.title}</h1>
-                  <p className="text-base ">Daily Cost<span className=" ml-3  text-red-500">${item.daily_cost}</span></p>
-                </div>
-                <div className="space-y-2 ">
-                  <p>
-                    {item.description}
-                  </p>
-                </div>
-                <div className="flex flex-row text-red-500 ">
-                  {
-                    myProfile.id === item.owner_id &&(
-                      <>
-                        <Link to={`/update/${item.id}`}>
-                          <FaEdit size={20} className='space-x-2' onClick={() => {
-                          }} />
-                        </Link>
-                        <FaTrash size={20} className='ml-3' onClick={() => {
-                          handleDelete(item)
-                        }} />
-                      </>
-                    )
-                  }
-                </div>
-              </div> */}
+            
               <div className="relative flex w-[100%]  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md m-auto mb-3">
                 <div className="relative mx-4 mt-4 h-96 overflow-hidden  bg-white  text-gray-700">
                   <img
