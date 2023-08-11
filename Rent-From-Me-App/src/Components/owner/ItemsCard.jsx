@@ -25,35 +25,7 @@ export const ItemsCard = () => {
         {items.map((item) => {
           return (
             <>
-              {/* <div key={item.id} className="flex flex-col justify-start items-start space-y-3 transition  ease-in-out hover:shadow-lg bg-[#fff] p-2 rounded ">
-                <Link to={`/items/${item.id}`}>
-                  <img src={item.img_url} className='w-full  object-cover h-[400px]' alt="Missing Item Image" />
-                </Link>
-                <div className=" space-y-2 ">
-                  <h1 className="text-2xl">{item.title}</h1>
-                  <p className="text-base ">Daily Cost<span className=" ml-3  text-red-500">${item.daily_cost}</span></p>
-                </div>
-                <div className="space-y-2 ">
-                  <p>
-                    {item.description}
-                  </p>
-                </div>
-                <div className="flex flex-row text-red-500 ">
-                  {
-                    myProfile.id === item.owner_id &&(
-                      <>
-                        <Link to={`/update/${item.id}`}>
-                          <FaEdit size={20} className='space-x-2' onClick={() => {
-                          }} />
-                        </Link>
-                        <FaTrash size={20} className='ml-3' onClick={() => {
-                          handleDelete(item)
-                        }} />
-                      </>
-                    )
-                  }
-                </div>
-              </div> */}
+            
               <div className="relative flex w-[100%]  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md m-auto mb-3">
                 <div className="relative mx-4 mt-4 h-96 overflow-hidden  bg-white  text-gray-700">
                   <img
@@ -64,7 +36,7 @@ export const ItemsCard = () => {
                 <div className="p-6">
                   <div className="mb-2 flex items-center justify-between ">
                     <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased mr-2">
-                      {item.title}
+                      {item.title}<sapn className='font-normal px-2'>{item.make}</sapn>
                     </p>
                     <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
                       {item.daily_cost}$
@@ -72,6 +44,7 @@ export const ItemsCard = () => {
                   </div>
                   <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
                     {item.description}
+                    <span className='px-2 font-normal'>{item.model}</span>
                   </p>
                 </div>
                 <div className="p-6 pt-0 flex justify-between items-center -blue-900">
@@ -103,20 +76,7 @@ export const ItemsCard = () => {
                           </Link>
                           {/* 
                   
-  {
-                    myProfile.id === item.owner_id &&(
-                      <>
-                        <Link to={`/update/${item.id}`}>
-                          <FaEdit size={20} className='space-x-2' onClick={() => {
-                          }} />
-                        </Link>
-                        <FaTrash size={20} className='ml-3' onClick={() => {
-                          handleDelete(item)
-                        }} />
-                      </>
-                    )
-                  }
-                  
+ 
                   */}
 
                         </div>

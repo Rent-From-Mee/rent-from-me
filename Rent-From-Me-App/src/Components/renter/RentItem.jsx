@@ -33,7 +33,7 @@ export default function RentItem() {
        }).unwrap().then(()=>{
            message()
            resetForm()
-           navigate("/rentedItems")
+           navigate("/rented_items")
            window.location.reload()
        }).catch((error)=>{
         console.log(error)
@@ -59,13 +59,37 @@ export default function RentItem() {
                     onSubmit={handleSubmit}
                     enableReinitialize>
                     <Form className="w-full p-5 shadow-lg rounded-sm   lg:flex ">
-                        <div className=" lg:flex-col  w-full   flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row    hover:bg-gray-100 ">
-                            <img className="object-cover w-full rounded-t-lg h-96   md:rounded-none md:rounded-l-lg " src="https://images.pexels.com/photos/13009437/pexels-photo-13009437.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" />
+                        {/* <div className=" lg:flex-col  w-full   flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row    hover:bg-gray-100 ">
+                            <img className="object-cover w-full  h-96   md:rounded-none md:rounded-l-lg " src={currentItem&&currentItem.img_url} alt="" />
                             <div className="flex flex-col justify-between p-4 leading-normal">
                                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"></h5>
                                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{currentItem&&(currentItem.description)} </p>
                             </div>
-                        </div>
+                        </div> */}
+                        <div>
+
+                        <div className="relative mx-4 mt-4 h-96 overflow-hidden   bg-white  text-gray-700">
+                  <img
+                    src={currentItem.img_url}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="p-6 ">
+                  <div className="mb-2 flex items-center justify-between ">
+                    <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased mr-2">
+                      {currentItem.title}<sapn className='font-normal px-2'>{currentItem.make}</sapn>
+                    </p>
+                    <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
+                      {currentItem.daily_cost}$
+                    </p>
+                  </div>
+                  <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
+                    {currentItem.description}
+                    <span className='px-2 font-normal'>{currentItem.model}</span>
+                  </p>
+                </div>
+                </div>
+
                         <div className='lg:ml-10 bg-blue-90 w-full'>
                             <div className='space-y-3 mb-3 '>
                                 <label htmlFor="date" className=' text-xl pl-2 leading-normal   '>Start Date</label>

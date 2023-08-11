@@ -33,8 +33,8 @@ function App() {
              <Route path="/ownerProfile" element={<PrivateRoute />} >
              <Route path='/ownerProfile'element={<OwnerProfile/>}></Route>
              </Route>
-             <Route path="/rentedItems" element={<PrivateRoute />} >
-             <Route path='/rentedItems'element={<RentedItems/>}></Route>
+             <Route path="/rented_items" element={<PrivateRoute />} >
+             <Route path='/rented_items'element={<RentedItems/>}></Route>
              </Route>
             {/* <Route path="/items/:id" element={<PrivateRoute />} >
              </Route> */}

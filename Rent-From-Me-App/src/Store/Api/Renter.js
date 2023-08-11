@@ -43,7 +43,7 @@ const Renter = createApi({
         //rent an item 
         rentAnItem: builder.mutation({
             query: (data) => (
-                console.log("data",data),
+                // console.log("data",data),
                 {
                 
                 url: `/api/rentals/rent_item/${data.id}`,
@@ -63,9 +63,18 @@ const Renter = createApi({
             },
             invalidatesTags:["Renter"]
         }),
+        getRentals:builder.query({
+            query:(id)=>{
+                return{
+                    url:`/api/rentals/${id}`,
+                    method:'GET'
+                }
+            },
+            invalidatesTags:["Renter"]
+        }),
         deleteRentedItem:builder.mutation({
             query:(id)=>{
-                console.log("id")
+                // console.log("id")
                 return{
                     url:`/api/rentals/remove_item/${id}`,
                     method:"DELETE"
@@ -111,6 +120,7 @@ export const {
    useRentAnItemMutation,
     useRentProfileQuery,
     useRentedItemsQuery
-    ,useDeleteRentedItemMutation
+    ,useDeleteRentedItemMutation,
+    useGetRentalsQuery
 } = Renter
 export default Renter
