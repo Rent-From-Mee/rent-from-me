@@ -10,6 +10,7 @@ export default function RentedItems() {
     console.log("items in the rented",items)
     console.log(" rented",rented)
     const navigate  = useNavigate()
+    
     const handleDelete=(id)=>{
         deleteRentedItem(id)
         .unwrap().then(()=>{

@@ -61,18 +61,18 @@ const Renter = createApi({
                     method:'GET'
                 }
             },
-            invalidatesTags:["Renter"]
+            providesTags:["RentItems"]
         }),
         deleteRentedItem:builder.mutation({
             query:(id)=>{
-                console.log("id")
+                console.log("id", id)
                 return{
                     url:`/api/rentals/remove_item/${id}`,
                     method:"DELETE"
                 }
 
         },
-        invalidatesTags:["Renter"]
+        invalidatesTags:["RentItems"]
         }),
 
         rentProfile: builder.query({
