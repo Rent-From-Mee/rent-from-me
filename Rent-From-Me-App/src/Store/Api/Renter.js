@@ -63,6 +63,15 @@ const Renter = createApi({
             },
             invalidatesTags:["Renter"]
         }),
+        getRentals:builder.query({
+            query:(id)=>{
+                return{
+                    url:`/api/rentals/${id}`,
+                    method:'GET'
+                }
+            },
+            invalidatesTags:["Renter"]
+        }),
         deleteRentedItem:builder.mutation({
             query:(id)=>{
                 // console.log("id")
@@ -111,6 +120,7 @@ export const {
    useRentAnItemMutation,
     useRentProfileQuery,
     useRentedItemsQuery
-    ,useDeleteRentedItemMutation
+    ,useDeleteRentedItemMutation,
+    useGetRentalsQuery
 } = Renter
 export default Renter

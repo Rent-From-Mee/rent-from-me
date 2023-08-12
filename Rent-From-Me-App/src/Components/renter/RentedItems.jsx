@@ -1,27 +1,27 @@
 import React from 'react'
 import { useGetItemsQuery } from '../../Store/Api/item-slice'
-import { useRentedItemsQuery, useDeleteRentedItemMutation } from '../../Store/Api/Renter'
+import { useRentedItemsQuery,useGetRentalsQuery, useDeleteRentedItemMutation } from '../../Store/Api/Renter'
 import { FaTrash } from 'react-icons/fa'
-import { useNavigate,Link } from 'react-router-dom'
+import { useNavigate,Link, useParams } from 'react-router-dom'
 // import {FaTrash} from 'react-icons/fa'
 export default function RentedItems() {
   const { data: items = [] } = useGetItemsQuery()
   const { data: rented = [] } = useRentedItemsQuery()
+  console.log("rented",rented)
+  const params =   useParams()
   const [deleteRentedItem] = useDeleteRentedItemMutation()
-  console.log("items in the rented", items)
-  console.log(" rented", rented)
+ 
   const navigate = useNavigate()
   const handleDelete = (id) => {
     deleteRentedItem(id)
       .unwrap().then(() => {
-        console.log("deleted")
-        navigate("/rentedItems")
+        navigate("/rented_items")
         window.location.reload()
       })
   }
-
+  
   const my = rented.map((renter) => { return renter.tool_id })
-  console.log(my)
+  // console.log("rented ",my)
   return (
 
     <div className=" md:w-[88%] mx-auto p-5 mt-5">
@@ -50,11 +50,17 @@ export default function RentedItems() {
                       {qual.title}
                     </p>
                     <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-                      {qual.daily_cost}$
+                     <span className='px-3 font-normal '>Total_cost</span>{rentedItem.total_cost}$
                     </p>
                   </div>
-                  <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
+                  <p className="block font-sans text-sm font-normal mb-2 leading-normal text-gray-700 antialiased opacity-75">
                     {qual.description}
+                  </p>
+                  <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
+                    <span className=' bold  mr-3  mb-5 '> Start Date </span>{rentedItem.start_date}
+                  </p>
+                  <p className="block font-sans text-sm font-normal mt-2 leading-normal text-gray-700 antialiased opacity-75">
+                    <span className=' bold  mr-4 '> End Date </span>{rentedItem.end_date}
                   </p>
                 </div>
                 <div className="p-6 pt-0 flex justify-end items-center -blue-900">
@@ -66,7 +72,9 @@ export default function RentedItems() {
                       onClick={() => {
                         // handleDelete()
                       }} >
-                      <FaTrash size={20} />
+                      <FaTrash size={20} onClick ={(e)=>{
+                        handleDelete(rentedItem.tool_id)
+                      }} />
                     </button>
 
                

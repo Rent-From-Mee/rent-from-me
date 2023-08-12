@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai';
 import { Link } from 'react-router-dom'
+import {useRentProfileQuery} from '../../Store/Api/Renter'
+
 import "./style.css"
 import Cookies from 'js-cookie';
 const NavBar = () => {
   const [navs, showNavs] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const { data: rentProfile = [] } = useRentProfileQuery()
+//  console.log("rentedProfile IN nav",rentProfile.id)
   const token = Cookies.get("token")
   const rentToken = Cookies.get("renter")
+  
   useEffect(() => {
     if (token || rentToken) {
       setIsAuthenticated(true)
@@ -45,7 +50,7 @@ const NavBar = () => {
               {token ? (
                 <>
                   <Link to="/addItem">CREATE ITEM</Link>
-                  <Link to="/ownerProfile">Profile</Link>
+                  <Link to="/ownerProfile">PROFILE</Link>
 
 
                 </>
@@ -53,8 +58,8 @@ const NavBar = () => {
               {rentToken ? (
                 <>
 
-                  <Link to="/rentedItems">Rented Items</Link>
-                  <Link to="/profile">Profile</Link>
+                  <Link to={`/rented_items/`}>RENTED ITEMS</Link>
+                  <Link to="/profile">PROFILE</Link>
 
 
                 </>
