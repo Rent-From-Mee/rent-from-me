@@ -6,7 +6,7 @@ export default function Profile() {
 
     return (
         <>
-            <div className='bg-white w-[90%] md:w-1/2  m-auto lg:w-1/3  rounded-lg shadow-lg  '>
+            <div className='bg-white w-[90%] md:w-1/2  m-auto lg:w-1/3 mt-32  rounded-lg shadow-lg  '>
                 <div className='mt-2 w-full  h-[300px] bg-red-500 flex flex-col justify-center items-center space-y-5  '>
                     <img
                         src="https://cdn-icons-png.flaticon.com/512/236/236831.png?w=740&t=st=1691426950~exp=1691427550~hmac=fad27366588b217904035a5f2fbca06f421e4ce6b427940e8d8a4501ce4e62af" alt="items"

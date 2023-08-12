@@ -2,7 +2,21 @@ import {BiMoneyWithdraw} from "react-icons/bi";
 import {MdDeliveryDining , MdSecurity} from "react-icons/md";
 import {BiSupport} from "react-icons/bi";
 import Avatar from "../../assets/bg-cover.png";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 export default function Hero() {
+  const [ auth , setAuth ] = useState(false);
+
+  const token = Cookies.get("renter");
+
+  useEffect(()=>{
+    if(token){
+      setAuth(true);
+    }
+  },[token]);
+
   return (
     <>
       <div className="md:w-[88%] p-3 mx-auto mt-20 lg:mt-12 rounded-md h-screen flex flex-col justify-evenly lg:flex-row lg:justify-between items-center">
@@ -10,7 +24,16 @@ export default function Hero() {
           <span className="text-xl font-medium text-red-500">Plan your trip now</span>
           <h1 className="text-2xl lg:text-6xl font-bold tracking-widest leading-loose">Find The Perfect Device</h1>
           <p className="text-base lg:text-xl tracking-widest leading-loose h-fit" style={{lineHeight:"2"}}>Rent-From-Me offers a wide range of electronic Devices for rent</p>
-          <button className="px-8 py-3 rounded shadow bg-red-500 text-[#fff]">Rent Now</button>
+          {
+            auth && (
+              <Link to="/rented_items" className="px-8 py-3 rounded shadow bg-red-500 text-[#fff]">Rent Now</Link>
+            )
+          }
+          {
+            !auth && (
+              <Link to="/Login" className="px-8 py-3 rounded shadow bg-red-500 text-[#fff]">Rent Now</Link>
+            )
+          }
         </div>
         <img className=" rounded-lg lg:rotate-3 " src={Avatar} alt="bg-cover" />
       </div>
