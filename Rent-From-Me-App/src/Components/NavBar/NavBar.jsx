@@ -40,9 +40,9 @@ const NavBar = () => {
         <div className=' flex justify-start  items-baseline absolute right-7 top-3  lg:hidden'>
           <AiOutlineMenu className='ml-7' size={28} onClick={showMenu} />
         </div>
-        <nav className='lg:w-8/12 mt-2 md:mt-0' >
+        <nav className='lg:w-7/12 mt-2 md:mt-0' >
           <div className={navs ? "showList" : "HideList"}>
-            <ul className='h-screen lg:h-fit flex flex-col justify-start items-start gap-3 lg:flex-row lg:justify-around lg:items-center text-lg' onClick={hideMenu}>
+            <ul className='h-screen lg:h-fit flex flex-col justify-start items-start gap-2 lg:flex-row lg:justify-evenly lg:items-center text-lg' onClick={hideMenu}>
 
               <Link to="/">HOME</Link>
 

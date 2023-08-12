@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-
+import { GoLocation } from 'react-icons/go';
+import { AiOutlineMail, AiOutlinePhone} from 'react-icons/ai';
+import { GiWorld } from 'react-icons/gi';
 import * as Yup from 'yup'
 import { Form, ErrorMessage, Formik } from 'formik'
 import { toast } from 'react-toastify'
@@ -49,40 +51,36 @@ export default function Contact() {
           <span className="font-bold textlg">Thanks for your contacting!</span> we contact you ASAP!.
         </div>
       )}
-      <div className='flex flex-col lg:flex-row  justify-evenly items-center space-x-2 p-2 space-y-3  md:w-[80%] w-[97%] mx-auto'>
+      <div className='mt-20 mx-auto shadow rounded  w-[95%]  lg:w-[85%] grid grid-cols-1 md:grid-cols-2 justify-start items-start gap-4 space-y-3 md:space-y-1 p-3'>
 
-          <form onSubmit={sendEmail} ref={form} className="w-full p-5 shadow-lg rounded-sm grid grid-cols-1 md:grid-cols-1  gap-3">
-            <div>
+        <div className=' h-[30rem] flex flex-col justify-start items-start gap-3 p-3 bg-red-500 text-[#fff] space-y-5 font-serif'>
+
+          <p className='ml-1 md:ml-4 mt-8 text-2xl font-medium tracking-widest '>Let's get in touch</p>
+          <p className='ml-1 md:ml-4 text-xl font-medium tracking-normal'>We're open for any suggestion or just to have a chat</p>
+          <p className='ml-1 md:ml-4 text-base md:font-medium tracking-widest flex flex-row justify-evenly items-start gap-3'> <GoLocation size={20}/> <span>Address <small className='ml-1 md:ml-2 text-base'> : Mogadishu-banadir</small></span></p>
+          <p className='ml-1 md:ml-4 text-base md:font-medium tracking-widest flex flex-row justify-evenly items-start gap-3'> <AiOutlinePhone size={20}/> <span>Phone <small className='ml-1 md:ml-2 text-base'> : 61XXXXXXXXXX</small></span></p>
+          <p className='ml-1 md:ml-4 text-base md:font-medium tracking-widest flex flex-row justify-evenly items-start gap-3'> <AiOutlineMail size={20}/> <span> Email <small className='ml-1 md:ml-2 text-base'> : rentFrome@gmail.com</small></span></p>
+          <p className='ml-1 md:ml-4 text-base md:font-medium tracking-widest flex flex-row justify-evenly items-start gap-3'> <GiWorld size={20}/> <span>Website <small className='ml-1 md:ml-2 text-base'> : rentFromMe-vercel.app</small></span></p>
+
+        </div>
+
+        <form onSubmit={sendEmail} ref={form} className="flex flex-col justify-start items-start gap-3 space-y-3 p-2">
               <input className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-lg focus:outline-blue-500 block w-full p-2.5"
                 type="text" id="name"
                 name='name'
                 placeholder='Name' />
-              
-            </div>
-            <div>
               <input className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-lg focus:outline-blue-500 block w-full p-2.5"
                 type="email" id="email"
                 name='email'
                 placeholder='Email' />
-              
-            </div>
-            <div>
               <textarea className="shadow-sm bg-gray-50 border pl-2  border-gray-300 text-gray-900 text-lg h-40 focus:outline-blue-500 block w-full p-2.5"
                 type="text" id="title"
                 name='message'
                 placeholder='Message' />
-              
-            </div>
-            <div>
             <button type='submit' className='  w-full mb-4  outline-none  bg-red-500 text-center font-normal text-gray-100 px-4 py-3 rounded text-xl '>Submit </button>
-               
-            
-            </div>
-          
-          
-           
-          
           </form>
+
+
       </div>
     </>
   )

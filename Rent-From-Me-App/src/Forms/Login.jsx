@@ -81,7 +81,7 @@ function Login() {
                         <small className='headingText'>Do you have an account ? </small>
                         <Link className='headingText' to='/register' >Register</Link>
                     </span>
-                    <button type="submit" className="text-white mt-2 bg-red-500 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-sm text-sm w-full px-5 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-800 dark:focus:ring-blue-900">log in</button>
+                    <button type="submit" className="text-white mt-2 bg-red-500 hover:bg-red-800 focus:ring-4 focus:outline-none  font-medium rounded-sm text-sm w-full px-5 py-3 text-center">log in</button>
                 </Form>
             </Formik>
         </div>
